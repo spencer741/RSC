@@ -1,6 +1,8 @@
 # RSC
 A relatively simple 32 bit computer, built in Logisim
 
+-------------------------------------------------------------------------------------------------------------------------------------------
+
 In /RSC you will find an assortment of files including:
 
 The RSC microcode cheat sheet PDF.
@@ -11,3 +13,10 @@ Source code files for the ram 1, 2, and 3 projects -- descriptions inline.
 
 Compiled binary files for the latter.
 
+A zip file of the RSC emulator where you can write, compile, execute, debug, and export your code.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+In /Required you will find all of the required files that the RSC needs to be fully operational.
+
+Open RSC.circ in logisim and it will prompt for the selection of the other files.
