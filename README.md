@@ -20,3 +20,6 @@ A zip file of the RSC emulator where you can write, compile, execute, debug, and
 In /Required you will find all of the required files that the RSC needs to be fully operational.
 
 Open RSC.circ in logisim and it will prompt for the selection of the other files.
+
+
+If this gets enough attention, I will build a tutorial for creating this from the ground up.
