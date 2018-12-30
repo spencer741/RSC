@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA5_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA5_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA5_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 5</h1>
+<h2>1-bit Register</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>The RSC, like any computer, can only be called a computer if it can process and remember information. Processing will be addressed when we finish the ALU. The ALU by itself won't do any good if we can't remember the answer and build on it. Thus, an ALU is always sandwiched in some fashion between registers — registers to provide input and registers to capture output. Today, you will begin construction of those registers, specifically the simplest sort: a one-bit register consisting of a single flip-flop.</p>
+<p>Registers have many capabilities. However, we need a 1-bit register that is able to perform the following operations:</p>
+<ol style="margin-left: 75px;">
+<li>It should be able to load data on demand. If the load signal is active, then on the next clock tick, it should store the value present on its data line (0 or 1).</li>
+<li>It should be able to clear data on demand. When the clear signal is active, it should immediately flip to zero (without waiting for the next clock tick).</li>
+<li>It should produce a 1-bit output called <code><strong>data_out</strong></code>, which simply connects to the flip-flop's <code>Q</code> output.</li>
+</ol>
+<p>Therefore, you should have a total of four 1-bit inputs for this circuit (be sure they face the appropriate direction according to our conventions!):</p>
+<ul style="margin-left: 75px;">
+<li>data</li>
+<li>load</li>
+<li>clear</li>
+<li>clock</li>
+</ul>
+<p>A clock signal is necessary to synchronize the events of the register with other components of the RSC. This register, along with many other components of the RSC, would do us no good if we were unable to coordinate or synchronize when a certain component does a certain task. We will achieve this coordination by having one master clock for the entire RSC, which will be tied into all components needing a clock. The 1-bit register is one of those devices. <em>This is the reason we need an input pin for the clock signal and not an actual clock from the Logisim library</em>. If you ever tried it out, using a Clock component on a circuit doesn't provide a pin on the chip when you drag it into another circuit. Using the actual 1-bit input labeled "Clock" allows the master RSC clock we'll add later to come into our 1-bit Register and control precisely when things happen.</p>
+<p><strong>A Few Hints:</strong></p>
+<p>This circuit's construction is very important since we will be using it in a later lab. The circuit will be designed around a JK flip-flop. It is possible to make a one bit register with other types of flip-flops, but for our purposes, JK flip-flops work very well. The JK flip-flop in Logisim works the same way you were taught a JK flip-flop works in lecture, but with one addition. The JK flip-flop in Logisim has an enable pin located on the bottom part of the chip in the middle. The enable pin does exactly what it sounds like, it enables the chip to work. If the enable pin has an input of 0, then it does not matter what values are on the J and K inputs, the flip-flop will not work. Keep this in mind when designing your circuit. You will need to create a state table for the circuit, which will look like the following (see below for more details):</p>
+<div class="tablewrapper">
+<table class="statetable monospace">
+<tbody>
+<tr><th>Load</th><th>Data</th><th class="columnbreak">Q(t)</th><th class="columnbreak">Q(t+1)</th><th>J</th><th>K</th></tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code><strong>Load</strong></code> and <code><strong>Data</strong></code> are the inputs to your circuit. <code><strong>Q(t)</strong></code> is the output of your circuit and <code><strong>J</strong></code> and <code><strong>K</strong></code> are the inputs to the JK flip-flop you will be using as a base for the circuit. However, when designing your state table, <code><strong>Load</strong></code>, <code><strong>Data</strong></code>, and <code><strong>Q(t)</strong></code>&nbsp;should all be treated as inputs (label them A, B, and C, respectively, in your table if you'd like), as the value of Q(t+1) relies on the current value of Q(t). Also, if you recall, we mentioned earlier that you would be needing a <code><strong>Clear</strong></code> input as well. If the <code>Clear</code> input is going to be part of our circuit, why didn't we include it in the state table? The answer is that the <code>Clear</code> signal of the register is dealt with asyncronously. Asynchronous simply means do it without needing to sync with anything, hence do the action when prompted without care for the clock or any other input. We could have included the <code>Clear</code> input in the state table, but it would have no effect on the outcome. The <code>Clear</code>&nbsp;input will come into play later. Keep in mind that when <code>Clear</code> is 1, the output is 0 <span style="text-decoration: underline;">no matter what</span>. After your state table is complete, you should use K-maps to determine the appropriate circuits needed to feed the inputs of the <code>J</code> and <code>K</code> inputs on the flip-flop.</p>
+<p>In case you hadn't noticed before, the JK flip-flop in Logisim has two asynchronous input pins, located at the bottom of the flip-flop (labeled with a 1 and a 0). Both of these pins operate without regard to the clock signal and the enable signal. The input at the south-east portion of the flip-flop (the one labeled 0) is an asynchronous reset pin. When this input = 1, the output of the flip-flop is set to 0 and will remain for as long as the input = 1. When this input = 0, the flip-flop will operate as expected. The input at the south-west portion of the flip-flop (the one labeled 1) is an asynchronous set pin. When this input = 1, the flip-flop will be set (go to 1). When this input = 0, the flip-flip will operate as expected. When creating your circuit, make sure you are using (or not using) these two inputs correctly.</p>
+<p>Once you have completed this device, test it thoroughly to see that it loads 1s and 0s on command, that the clear signal asynchronously clears the register, and then (while active) prevents any attempt to load a 1 (remember the note above about the enable pin?). <strong><span style="color: #ff0000;">Clear should supersede everything</span>.</strong> Log your tests, and make sure that the log you submit demonstrates conclusively the full function of the register you have created.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Read the Overview carefully, then review the Requirements for the 1-bit register.</li>
+<li>Design the register, using a JK flip-flop as its core. Draft state table as necessary to ensure that it meets Requirements.</li>
+<li>Open Logisim and open the <code>generic.circ</code>.</li>
+<li>Use SAVE AS and save the circuit as <code>custom_reg.circ</code>. (<strong>NOTE:</strong> If you have already created a <code>custom_reg.circ</code> file, then just open your existing one. You <em>do not</em> want to overwrite your custom registers file with a blank circuit.)</li>
+<li>Rename the main circuit in the project library to <code>1bit_reg</code> (Select circuit and change name in properties)</li>
+<li>Add the following inputs and outputs:
+<ul>
+<li>One 1-bit input facing east labeled <code>Data</code></li>
+<li>One 1-bit input facing south labeled <code>Clock</code></li>
+<li>Two 1-bit inputs facing north labeled <code>Load</code> and <code>Clear</code></li>
+<li>One 1-bit output facing west labeled <code>Data_out</code></li>
+</ul>
+</li>
+<li>Add a JK flip-flop from the Memory folder as well as any combinational logic you will need, per your design.</li>
+<li>Wire together all components together appropriately.</li>
+<li>Test thoroughly. See the bottom of this page for an example log table for this assignment. For grading purposes, create a log file called <code>1bit_regtestlog.txt</code>.</li>
+<li>Submit to elearn under appropriate drop box.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul class="note">
+<ul class="note">
+<li>All the usual, plus: This circuit should be built from the ground up. The only prefabricated non-standard part you may use is the JK flip-flop. Other than that, it should be all wires and gates.</li>
+<li>The register should perform the following actions:
+<ul>
+<li>When <code>Load</code> is active, load the value of the <code>Data</code> line on the next up-tick of the clock.</li>
+<li>When <code>Clear</code> activates, immediately clear content to zero and as long as <code>Clear</code> is active, prevent any other signal from commanding the flip-flop to up-swing.</li>
+</ul>
+</li>
+<li>The final part should have 4 inputs: <code>Data</code>, <code>Load</code>, <code>Clear</code>, and <code>Clock</code>.</li>
+<li>When you are finished your circuit should look like the following when you try to drag it onto another circuit (we'll be doing this in a later lab!):</li>
+</ul>
+</ul>
+<img src="./CLA5_files/1bitReg.JPG" alt="1 Bit Register">
+<ul class="note">
+<ul class="note">
+<li>Also, your log file should look like the following: (Output has been intentionally left blank... you must come up with answers)</li>
+<li>The log file below is just an example of the formatting the log needs to have. Your log should include all possible cases.</li>
+</ul>
+</ul>
+<img src="./CLA5_files/1bitReg.png" alt="1 Bit Register Log File">
+<h1 id="submissions">Submission</h1>
+<ul class="note">
+<li>A zipped file labeled according to the syllabus containing:
+<ul>
+<li><code>custom_reg.circ</code></li>
+<li><code>1bit_regtestlog.txt</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:56:45</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA5_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA5_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

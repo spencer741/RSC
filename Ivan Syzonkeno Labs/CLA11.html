@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA11_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA11_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA11_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 11</h1>
+<h2>Control Signals #3</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<!-- <h2>	<p style="color:red">Demo date: study day - sign for personal time.</p></h2> -->
+<p>In this lab you will build 6 PLD circuits. You will use the same method discussed in Closed Lab 9 to create the following circuits. Be sure to read this entire page before proceeding, as there are some potentially helpful tips down below. Note that each PLD should be named as indicated:</p>
+<ul class="monospace">
+<li>Z_LD</li>
+<li>OUTR_LD</li>
+<li>RAM_RW</li>
+<li>RAM_EN</li>
+<li>IR_LD</li>
+<li>SC_CLR</li>
+</ul>
+<p>Regarding the RAM PLDs, you will need to know how the RAM unit works to do these: The RAM unit does nothing unless its Enable signal is high. When that signal goes high, it performs whatever operation the Read/Write signal commands. If the RAM unit is to provide a value to a register (Read), then it must receive a <code>1</code> on both the LD and Enable signals. If the RAM unit is to record a value from a register, then it must receive an Enable of <code>1</code> and a LD of <code>0</code>.</p>
+<p>Regarding <code>SC_CLR</code>, which clears the Sequence Counter: This is how you set the machine back to <code>t0</code> after completing those operations which take less than 8 clock cycles to complete. (A quick review of the microcode will tell you that this includes all the operations there are.) <s><code>SC_CLR</code> should activate on the <strong>next</strong> <code>t</code> value after the last micro-operation is performed for the currently executing operation. For example, if the last step in a <code>JMP</code> operation occurs on <code>t5</code>, then <code>t6</code>, in combination with the appropriate <code>d</code> signal, should activate <code>SC_CLR</code>, which will instantly reset the counter to zero.</s> &nbsp;Since the combinational analysis tool can only accept up to 12 different inputs at a time, we have to be a little more clever with our circuit design here. Lest this circuit end up requiring every single <code>d</code> line, I encourage you to consider the problem in terms of a default case and non-conforming cases: identify on which <code>t</code> value the largest number of operations will conclude, and treat it as a default case (i.e. show it as you would any other expression). Establish an expression for all other cases and then modify it to use the default condition if none of the others apply.</p>
+<p>One other special consideration: the Z register is unique among all the registers. First of all, you will notice that when the Z register loads a value, that value depends on the contents of the Accumulator. You do NOT need to worry about this in your PLDs: your Z register takes care of checking the value of the accumulator by itself.</p>
+<p><strong>Another thing about the Z register: this register should always load. </strong>The current version of the microcode does not reflect this. Your copy of the microcode says that the Z register should load only after an ALU operation. <em>This is not correct!</em>&nbsp;There are other operations that change the state of the ACC (LDACC and MOVR). These operations should also cause the Z register to load. So, instead of making things really complicated with these extra cases, it will be much easier if the Z register always load. <strong>The expression for the Z_LD PLD should be <code>Z_LD = 1</code>.</strong></p>
+<h1 id="procedure">Procedure</h1>
+<p>The procedure will be the same as the previous two closed labs, but here is a quick refresh.</p>
+<ol>
+<li>Examine microcode for the RSC and look for every reference for the needed signal.</li>
+<li>Obtain the logical expression for the needed signal and translate the control signal to a signal that Logisim understands.</li>
+<li>Add the Logisim expression to your <code>control_plds.txt</code> file.</li>
+<li>Open the <code>PLDs.circ</code> circuit file and create a part appropriately named for the assigned PLD.</li>
+<li>Open Combinational Analysis and use the Expression-analysis sytem to create the circuit. Enter the appropriate input names on the Inputs tab. Enter the appropriate output name on the Outputs tab. The output name should be the same as the circuit name. Don't forget to click <strong>ENTER</strong> to register the expression to the chosen output.</li>
+<li>Select <strong>Build Circuit</strong> and name the circuit after its output and generate the circuit. Be sure to select the <code>PLDs.circ</code> as the destination.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>All normal conventions apply, with the exception that all input pins on PLDs will face east and all output pins will face west.</li>
+<li>Any requirements stated above.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul class="monospace">
+<li>PLDs.circ</li>
+<li>control_plds.txt</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer1">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:59:31</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA11_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA11_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

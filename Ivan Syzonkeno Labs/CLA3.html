@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA3_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA3_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA3_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 3</h1>
+<h2>Seven Segment Display</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>In this lab, you will hopefully come to grips with the concept of subcircuits. You've already created a few, though you didn't treat them as such. When you created multiple circuits in your <span class="monospace">initial_labs.circ</span> file in the previous lab, you were potentially creating subcircuits. In Logisim, any circuit you create becomes a "part" in your library, which can be dropped into any other circuit. We will use this function and concept to create a Seven-Segment Digital Display in three parts: a PLD, a Seven-Segment Decoder, and the Display Circuit.</p>
+<p>A PLD is a Programmable Logic Device. In engineering, this is a device that may be used on programmable integrated circuits (ICs) to produce complicated combinational circuits. In the real world, the IC is full of AND, OR, XOR, NOR, and other gates which can be programmed and configured via switches to produce the desired logic design internally. Then you simply have to drop the device onto your breadboard and wire up its inputs and outputs. Of course, programming an IC requires the proper equipment. Fortunately, Logisim has the capability to create and use programmable chips.</p>
+<p><img src="./CLA3_files/SevenSegDisp.png" alt="Seven Seg Disp" style="float: right;">A PLD's necessary components are generated for you in Logisim when you provide a Truth Table or a Logical Expression that correctly expresses the functionality of your circuit. In this lab, we will use a <strong>truth table</strong>. You are to create a BCD (binary coded decimal) to 7-segment decoder. A BCD to 7-segment decoder is a circuit which takes a 4-bit BCD value and outputs 7 signals that control a seven-segment display. This display contains 8 LEDs. Seven of the LEDs are normally labeled as shown. (It may seem confusing, but check again: the numbering is clockwise from the top segment, with the center segment last.) The 8th LED is used to indicate a decimal point, which we will not be using. <span style="text-decoration: underline;">Do not</span> worry about the decimal point, only concern yourself with the other 7 inputs that control the parts of the number.</p>
+<p><span style="text-decoration: underline;"><strong>(The following explanation is just a generic overview of creating a PLD in Logisim. Skip to the <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a> section for this lab's instructions!)</strong></span></p>
+<p>To Create a PLD in Logisim:</p>
+<ul>
+<li>Create a truth-table for your circuit. Remember that a full truth-table has a row for every possible combination of inputs, in counting order.</li>
+<li>Copy the outputs area of your truth table to a text file or spreadsheet. If you use a text file, separate the columns with tabs.</li>
+<li>Open Logisim's Combinational Analysis tool via the Window menu.</li>
+<li>On the Inputs tab, add the appropriate input names, per your truth table.</li>
+<li>On the Outputs tab, add the appropriate output names.</li>
+<li>Flip over to the Table tab. There you will see a complete truth table for your inputs. You may change individual output values on each row of this table manually, or you may copy output values from the tab-separated table and paste them into appropriate positions in the table. Select all the outputs in your text or spreadsheet file, copy them, and paste them into this table.</li>
+<li>Click Build Circuit and name the circuit appropriately. This will build a sub circuit of that name in your project. This will allow you to single-click on your part and add an instance of it to the circuit.</li>
+</ul>
+<p>Logisim automatically creates a part shape with the appropriate number of inputs and outputs. (These are automatically labeled, too, as you will see if you hover your mouse over its input and output pins.) If you make any changes to the base part, it will instantly update throughout your project wherever it is used, so be careful about changing parts that have already been plugged into larger circuits - especially if those changes will change the dimensions or pin-layout of the shape.</p>
+<h1 id="procedure">Procedure</h1>
+<img src="./CLA3_files/SevenSeg.jpg" style="float: right;"><ol>
+<li>For each decimal number given by the binary representation DCBA, your circuit should display the correct segments on the figure to the right. For instance, if your number is 0101, or 5 in decimal, the segments a, c, d, f, and g should be lit up and the others should not be.</li>
+<li>Create a truth table using Microsoft Excel (not on paper; this has a purpose!) for the seven-segement decoder. The truth table should have inputs labeled: D, C, B, A where D is the most significant input. The outputs of the table should be labeled as a, b, c, d, e, f, and g corresponding to the segments in the figure shown to the right. (Keep in mind that 'A' and 'a' are not the same thing).&nbsp;The file should contain enough rows to account for input values from 0 to 15 (0 to F in hexadecimal), activating the appropriate segments to display these values. For any value above 9, an 'E' (for Error) should be displayed by activating the appropriate segments. Save the file as&nbsp;<strong><span class="monospace">sevenTable.xlsx</span></strong></li>
+<li>Open Logisim and use SAVE AS to save the empty project as <strong>seven_seg.circ</strong></li>
+<li>The top folder in the Libraries tree should now be <span class="monospace"><strong>seven_seg</strong></span>. Right click and add a new circuit called <strong>Display</strong>. You may delete the circuit labeled <strong>main</strong>.</li>
+<li>Right-click on that top folder and select Add Circuit and add another circuit called <span class="monospace">7SegDecoder</span>. You can also get this option from the Project menu.</li>
+<li><strong>Good news!&nbsp;</strong>You don't have to create those nasty logical expressions for each of the LEDs! You get to use the tool in Logisim that you wish you could have used for the previous lab. ;)</li>
+<li>Open the Combinational Analysis Tool from the Window menu. We will use this to create a third circuit, called <span class="monospace">7segPLD</span>. We will use the Truth Table tool which will allow Logisim to generate the circuit based on your truth table. Click the Input tab and add the appropriate input names (D, C, B, and A where D is the most significant bit) and click Add. Similarly, click the Output tab and add the output names (a, b, c, d, e, f, and g) corresponding to the segments listed in the above figure. Click on Table and load the correct output values into the truth table by copying and pasting from your spreadsheet. (Note: you can copy all of your output values from your spreadsheet and paste them into the truth table all at one time. However, make sure you only copy the cells with truth values -- 0 or 1 -- in them!)</li>
+<li>Click Build Circuit. Be sure to name the circuit <span class="monospace">7segPLD</span> and make sure the destination is set to <span class="monospace">seven_seg.circ</span></li>
+<li>Close the Combinational Analysis window.</li>
+<li>Now you should have three circuits, (<span class="monospace">Display</span>, <span class="monospace">7segDecoder</span>, and <span class="monospace">7segPLD</span>) in your project library.
+<ul>
+<li>NOTE: Double-clicking on a circuit displays its contents. Single-clicking on a circuit allow you to create an instance of it as a part in another circuit.</li>
+<li>NOTE: Logisim draws a magnifying glass over the icon of the circuit currently being viewed; the current circuit name also appears in the window's title bar.</li>
+<li>REMEMBER: the D input of your <span class="monospace">7segPLD</span> circuit is the most significant. This means that it will appear as the top input when added as a subcircuit. Keep this in mind when wiring.</li>
+</ul>
+</li>
+<li>Double-click on the <span class="monospace">7SegDecoder</span> circuit. You should see an empty breadboard at this point.</li>
+<li>Create an instance of the <span class="monospace">7segPLD</span> circuit as a part (Click on the circuit one time!) and place it on the <span class="monospace">7SegDecoder</span>'s breadboard. Move the part to the middle of the breadboard.</li>
+<li>Add the following I/O:
+<ul>
+<li>1 4-bit input - labeled <span class="monospace">BCD_In</span></li>
+<li>1 1-bit input - labeled <span class="monospace">DP_In</span></li>
+<li>8 1-bit outputs - each labeled corresponding to the segment they will be attached to. Also one labeled <span class="monospace">DP_Out</span>.</li>
+</ul>
+</li>
+<li>Connect <span class="monospace">DP_In</span> to <span class="monospace">DP_Out</span>. This is simply a pass through.</li>
+<li>Connect the rest of the inputs and outputs to the <span class="monospace">7segPLD</span> circuit so as to allow a 4-bit BCD number to be the input, and the correct outputs to be activated.</li>
+<li>Test and log all possible inputs and the outputs they generate. Outputs for individual segments are expected to be numbered in the appropriate order. Save the log file as <span class="monospace">sevenSegmentLog.txt</span>.</li>
+<li>Now, double-click the <span class="monospace">Display </span>circuit and bring the <span class="monospace">7SegDecoder</span> into the <span class="monospace">Display </span>circuit as a part. You have now built a circuit within a circuit within a circuit! Place the part into the middle portion of the breadboard.</li>
+<li>Add a <span class="monospace">Seven Segment Display</span> device (found in the Input/Output library folder on the left) to the right of the <span class="monospace">7SegDecoder</span>.</li>
+<li>Connect the output of the <span class="monospace">7SegDecoder</span> to the inputs of the <span class="monospace">Seven Segment Display</span>. Note the previous images to make proper connections.</li>
+<li>Add the following I/O:
+<ul>
+<li>1 4-bit input labeled <span class="monospace">BCD</span></li>
+<li>1 1-bit input labeled <span class="monospace">DP</span></li>
+</ul>
+</li>
+<li>Connect the I/O that was just added to the circuit.</li>
+<li>Test all possible input values again to make sure that the correct value is displayed on the display device.</li>
+<li>Save this circuit. Keep it safe throughout the semester.</li>
+<li>Submit Files</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>All the usual requirements in terms of format, aesthetics, and submission packaging apply.</li>
+<li>ALL files must be labeled.</li>
+<li>Be sure to log your test of the <span class="monospace">7segPLD</span>'s functionality, as directed above, and include that log in your submission package.</li>
+<li>As to the circuit itself, it must activate the appropriate lights on the <span class="monospace">Seven Segment Display</span> to display the value corresponding to its four-bit input.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul>
+<li><span class="monospace">seven_seg.circ</span></li>
+<li><span class="monospace">sevenTable.xlsx</span></li>
+<li><span class="monospace">sevenSegmentLog.txt</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:56:09</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA3_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA3_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

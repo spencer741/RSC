@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./OLA6_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./OLA6_files/CLA.css" type="text/css" media="screen">
+	<link href="./OLA6_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Open Lab 6</h1>
+<h2>Bus Loop and Memory</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>In this lab, you will build the greater part of the RSC. The major components of the RSC include a set of registers, a Control Unit, an ALU, and a RAM unit. The list of registers include: <code>AR</code> (address register), <code>PC</code> (program counter), <code>DR</code> (data register), <code>ACC</code> (accumulator), <code>R</code> (generic register), <code>Z</code> (zero register - this is added later), <code>OUTR</code> (output register), and <code>IR</code> (instruction register). These registers need to communicate with each other. Therefore, a bus line must be set-up so that information can be sent from one component to other components in the system. A bus line is a group of wires (32 wires for the RSC) on which bits can be transmitted. However, note that only one 32-bit word can be placed on the bus line at a time. Some of the registers that you built earlier had tri-state output which will prevent multiple registers from attempting to use the busline at the same time.</p>
+<p>This lab mainly involves the construction of the bus line for the RSC. In order to complete the busline, you need to understand the function and purpose for many of the components listed above. The following chart indicates the behavior of some of these components. Study the chart below so that you will understand how to set-up your bus line.</p>
+<table>
+<tbody>
+<tr>
+<td><b>Component</b></td>
+<td><b>Purpose</b></td>
+<td><b>Bus Connection</b></td>
+</tr>
+<tr>
+<td><code>AR</code></td>
+<td>Sends an address to <code>RAM</code></td>
+<td>Receives its data from the bus</td>
+</tr>
+<tr>
+<td><code>PC</code></td>
+<td>Stores the address of the next instruction to be executed</td>
+<td>Receives an address from the bus and outputs data to the bus</td>
+</tr>
+<tr>
+<td><code>DR</code></td>
+<td>Stores data</td>
+<td>Receives data from the bus and outputs data to the bus. It also provides the data input for the <code>IR</code>.</td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td>Holds data that works closely with the <code>ALU</code></td>
+<td>Receives data from the bus and outputs data to the bus.</td>
+</tr>
+<tr>
+<td><code>ACC</code></td>
+<td>Stores the results of <code>ALU</code> operations.</td>
+<td>It receives data from the <code>ALU</code> and sends its output to the <code>ALU</code></td>
+</tr>
+<tr>
+<td><code>IR</code></td>
+<td>Holds an instruction to be decoded and executed</td>
+<td>Does not use the bus!</td>
+</tr>
+<tr>
+<td><code>RAM</code></td>
+<td>64K x 32 memory unit - stores instructions and data</td>
+<td>Receives data from the bus and outputs data to the bus</td>
+</tr>
+<tr>
+<td><code>Z</code></td>
+<td>Flag register that stores the value <code>1</code> if the <code>ACC = 0</code>; otherwise, it stores the value <code>0</code></td>
+<td>Receives information from the <code>ACC</code> and does not use the bus</td>
+</tr>
+<tr>
+<td><code>OUTR</code></td>
+<td>Provides the output device for the RSC</td>
+<td>Receives data from the bus only</td>
+</tr>
+</tbody>
+</table>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Open the <code>RSC.circ</code> project file. Add the <code><strong>custom_reg.circ</strong></code> file to the RSC project as a library. How? Project-&gt;Load Library-&gt;Logisim Library-&gt;"select proper file".</li>
+<li>If you do not already have one, add a circuit called <code><strong>RSC</strong></code> to your <code>RSC.circ</code> file. Open the <code><strong>RSC</strong></code> to work on. It should be blank.</li>
+<li>Draw the main Bus loop. Leave plenty of space above, to the left, and within. The Bus is the primary common data circuit of the computer. The Bus is indeed a loop. So, draw the loop and make it large because you will need space. Use the picture below as a reference. Also, notice that there is plenty of room along the left and top.<br><img src="./OLA6_files/Bus.JPG" alt="Bus"></li>
+<li>Add a <code>RAM</code> module from Logisim's Memory Library, with address width of 16 and data width of 32, and place near the top right corner of the Bus loop's interior. Examine the <code>RAM</code> unit and make sure you understand the inputs and outputs of this circuit. NOTE: The <code>RAM</code> unit's <code>D</code> pin is both a data input and a data output pin. When the <code>ld</code> signal is on and the <code>RAM</code> unit is selected, the <code>D</code> line will output the 32 bits of data that are stored at the address currently detected on the <code>A</code> input line. When <code>ld</code> is off and the <code>RAM</code> unit is selected, the unit will attempt to store data on the <code>D</code> line to the address detected on its <code>A</code> input line. Therefore, the <code>D</code> pin needs to connect to the data bus. When you make that connection, Logisim will determine that the Bus loop is a 32-bit wire bundle.</li>
+<li>Add the <code>AR</code> register. Place it to the left of the <code>RAM</code> module.</li>
+<li>Make sure the <code>AR</code> is labeled via its Shared Label as such. This goes for all components that are added to the RSC.</li>
+<li>The <code>AR</code> needs to be connected to the <code>RAM</code>, but if you connect it directly, you will get a bit-width mismatch because the <code>AR</code> outputs a 32-bit number (just like all of our registers), but the <code>RAM</code> only accepts a 16-bit address. We can fix this by placing a splitter between the two. Place a splitter with bit-width of 32 and fan-out of 2. The 16 least significant bits (bit 0 through bit 15) will go into the <code>RAM</code>, and the remaining 16 bits will go nowhere.</li>
+<li>Connect the Bus to the <code>AR</code>, the <code>AR</code> to the splitter, the splitter to <code>RAM</code>, and the <code>RAM</code> to the Bus. Remember, the purpose of the <code>AR</code> is to store an address and supply that address continuously to the <code>RAM</code> unit. Thus, it needs to be able to receive a value from the bus. When you make the connection from <code>AR</code> to <code>RAM</code>, you may see the first line in the <code>RAM</code>'s contents window light up. This is the device receiving an address of <code>0000</code> from <code>AR</code>. The <code>RAM</code> should always be receiving a steady signal from the <code>AR</code>.</li>
+<li>Add your <code>ALU</code> and the <code>ACC</code> circuits to this circuit. Arrange them laterally at the bottom of the Bus loop's interior, paralleling the <code>AR</code> and <code>RAM</code> configuration. From left to right they should be <code>ALU</code> then <code>ACC</code></li>
+<li>Connect the Bus to the <code>B</code> input of the <code>ALU</code>, the output of the <code>ALU</code> to <code>ACC</code>, and the bus output of the <code>ACC</code> to the Bus. Also, connect the output of the <code>ACC</code> to <code>ALU</code>. (Note: On any 32-bit register, <code>Bus Out</code> to the Bus line, <code>Data Out</code> to anything else. On the <code>ALU</code>, <code>A</code> is always the current contents of <code>ACC</code>; <code>B</code> is the bus line input.)</li>
+<li>Add your <code>PC</code>, <code>DR</code>, and <code>R</code> registers. Add these to the Bus loop's interior region and wire them to the Bus for both input and output. Your <code>PC</code> register should be placed under the <code>RAM</code> module. Once the <code>PC</code> register is placed, the <code>DR</code> and <code>R</code> registers should be placed onto the board so as to form a diagonal line going down and to the left from the <code>PC</code> register. <strong>Also, note that at least five grid-rows of vertical space should be used between any two components.</strong> That space is for the control wires which will be inserted later.</li>
+<li>Add the <code>OUTR</code> register, outside of the Bus loop and to the south. Note that the <code>OUTR</code> register receives data from the Bus.</li>
+<li>Add the <code>IR</code> register, east of the Bus loop and off to the right. The <code>IR</code> is not connected to the bus. It should receive its data directly from the <code>DR</code>.</li>
+<li>Add a Clock component and connect it to all <code>Clock</code> inputs. The Clock is an actual clock module, and not just an input pin. Place the Clock part near the top-left corner of the breadboard and draw a clock line down the left side. Then, connect the Clock to each register's clock input pin. Don't forget to label it as "Primary Clock".</li>
+<li><strong>Make sure all parts are labeled!</strong>
+<ul>
+<li>Everything inside the box is the RSC's processing core, and everything to the right of the box is involved in its control circuitry. The arrangement is designed to clearly separate the two. This will be considered the standard arrangement for grading purposes.</li>
+</ul>
+</li>
+<li>A small note about wiring up your components: you may at some point encounter an issue with Logisim giving you red wires on your Bus loop. This is because we haven't yet wired all of the necessary components into our RSC. If you're concerned about your circuit being incorrect because of this, ask your lab instructor. However, if everything is wired correctly and you still get red wires for this particular assignment, you should not be penalized.</li>
+<li>Submit.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>At the end of this lab, you should have a completed Bus line on the RSC circuit board. <code>RAM</code>, <code>AR</code>, <code>PC</code>, <code>DR</code>, <code>IR</code>, <code>R</code>, <code>ALU</code>, <code>ACC</code>, and&nbsp;<code>OUTR</code>&nbsp;should all be present and properly connected with Shared Labels properly filled in.</li>
+<li>A Primary Clock should be present and should be wired to the clock inputs of all registers and <code>RAM</code>.</li>
+<li>We have not connected the control pins yet. Leaving those pins disconnected is alright, because we will come back later to connect them.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul>
+<li><code>RSC.circ</code></li>
+<li><code>custom_reg.circ</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:58:45</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./OLA6_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./OLA6_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./OLA4_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./OLA4_files/CLA.css" type="text/css" media="screen">
+	<link href="./OLA4_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Open Lab 4</h1>
+<h2>Sequential Circuits</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>Design and build a sequential circuit in Logisim to count in the following manner: <span class="monospace">Q(t + 1) = (Q(t) + 5) MOD 9</span>. That is, your circuit should count 0, 5, 1, 6, 2, 7, 3, 8, 4, and 0 (then it will repeat).&nbsp;To build this circuit, we will be using JK flip flops.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Draw the state diagram for the circuit described in the Overview.</li>
+<li>Make out the state table for your design.</li>
+<li>Develop Karnaugh maps for each input to the flip flops (Hint: you should have 8 total K-maps).</li>
+<li>Come up with an algebraic expression for each input to the flip flops.</li>
+<li>Open Logisim and create a new circuit file called <strong><span class="monospace">mod_counter.circ</span></strong>.</li>
+<li>Add a new circuit called <strong>Mod9</strong>&nbsp;and remove the <strong>main</strong> circuit.</li>
+<li>Add another circuit called <strong><span class="monospace">Display</span></strong>.</li>
+<li>In the <strong><span class="monospace">Mod9&nbsp;</span></strong>circuit, add the following I/O:
+<ul>
+<li>One 1-bit input labeled <strong><span class="monospace">Clock</span></strong></li>
+<li>One 4-bit output labeled <strong><span class="monospace">Output</span></strong></li>
+</ul>
+</li>
+<li>Now create the circuit from the state table and Karnaugh maps you made. Note: For the JK flip flops, use a constant <em><span class="monospace">1</span></em> on the enable pins (en).</li>
+<li>Once you have finished with the <strong><span class="monospace">Mod9</span></strong>&nbsp;circuit, bring up the <strong><span class="monospace">Display</span></strong> circuit and drag in an instance of the <strong><span class="monospace">Mod9</span></strong>&nbsp;circuit.</li>
+<li>Add a clock component (under the <strong>Wiring</strong>&nbsp;submenu)&nbsp;to your <strong><span class="monospace">Display</span></strong> circuit and connect it to the appropriate pin.</li>
+<li>Now, import your seven-segment display library you created in Closed lab 3. To import a library, you go to <strong>Project &gt; Load Library &gt; Logisim Library </strong>and then locate your .circ file from that project.</li>
+<li>Once you have the seven-segment library imported, use the subcircuits in this library to display the results from the <strong><span class="monospace">Mod9</span></strong>&nbsp;circuit, using your seven-segment display.</li>
+<li>Read over all requirements and submission to make sure you have met all requirements, then submit.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul class="note">
+<li>All standard syllabus and convention information applies.</li>
+<li>You <strong>must</strong> use JK flip flops.</li>
+<li>You <strong>must</strong> incorporate your seven-segment display circuit.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul class="note">
+<li>A zipped file containing:
+<ul>
+<li><span class="monospace">mod_counter.circ</span></li>
+<li><span class="monospace">seven_seg.circ</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:56:57</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./OLA4_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./OLA4_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

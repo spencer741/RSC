@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./OLA3_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./OLA3_files/CLA.css" type="text/css" media="screen">
+	<link href="./OLA3_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Open Lab 3</h1>
+<h2>Binary Converter</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content">
+<h1 id="overview">Overview</h1>
+<p>This lab is an exercise in applying the concepts of circuit design and becoming more familiar with Logisim. You should build a 3 to 7 binary-to-thermometer converter. An <em>M</em>-to-<em>K</em> binary-to-thermometer converter will convert a decimal number (we'll call this <em>N</em>) represented by some binary number containing <em>M</em> bits&nbsp;to a <em>K</em>-bit number. This <em>K</em>-bit number will have (<em>K</em> minus <em>N</em>) 0's in the most-significant bit locations followed by (<em>N</em>) 1's in the lesser-significant bit locations.&nbsp;A binary-to-thermometer code converter has <em>X</em> inputs and 2<sup>X</sup> - 1 outputs. It produces a (2<sup>X</sup> - 1)-bit thermometer code for the number specified by the binary number given as input. For example, if the input is 101, the output should be 0011111, as the binary number 101 is the decimal number 5, so the output should contain two 0's followed by 5 1's.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Design this combinational circuit on paper. It should have inputs labeled A, B, and C where A is the most significant input. The circuit should have seven outputs. Use K-maps to simplify the algebraic expression for each of the seven outputs.</li>
+<li>Open Logisim and open your generic.circ file.</li>
+<li>Use SAVE AS and save the circuit as <span class="monospace"><strong>bin_converter.circ</strong></span>.</li>
+<li>Rename its main circuit to <span class="monospace"><strong>bin_converter</strong></span>.</li>
+<li>Now, build the circuit that you just designed on your paper. Use the following I/O:
+<ul>
+<li>1 - 3-bit input</li>
+<li>7 - 1-bit outputs</li>
+</ul>
+</li>
+<li>Label your input and output devices appropriately.</li>
+<li>At this point, test your circuit and log it. Create a log file called <span class="monospace"><strong>binConverterLog.txt</strong></span> for this circuit. The log file should test all inputs in numerical order.</li>
+<li>After you have built your <span class="monospace">bin_converter</span> circuit, add another circuit to the project called <span class="monospace"><strong>display.</strong></span></li>
+<li>Double click on display and start editing the circuit. Drag an instance of the <span class="monospace">bin_converter</span> on to the board.</li>
+<li>Add the following:
+<ul>
+<li>1 - 3-bit input</li>
+<li>7 - LED's from the Input/Output folder</li>
+</ul>
+</li>
+<li>Make sure the LEDs stack one on top of the other.</li>
+<li>Connect the I/O to the <span class="monospace">bin_converter</span> chip.</li>
+<li>Test your circuit and make sure that it gives the proper output for each input. You should now see the display circuit is resembling a thermometer.</li>
+<li>After you have tested your circuit, submit files according to the submission requirements.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul class="note">
+<li>The circuit file should be properly labeled, and the log file should be correct.</li>
+<li>Outputs in the log file should be in order.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul class="note">
+<li>A zipped file containing:
+<ul>
+<li><span class="monospace">bin_converter.circ</span></li>
+<li><span class="monospace">binConverterLog.txt</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:56:32</p>
+</div>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./OLA3_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./OLA3_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

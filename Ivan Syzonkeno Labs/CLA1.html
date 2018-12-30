@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA1_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA1_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA1_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p> <div id="body1">
+ <div id="header1">
+    <h1>CSCI 3130</h1>
+    <h2>Logisim Conventions</h2>
+    </div>
+    <div id="content1">
+    <h1 id="overview1">Overview</h1>
+    <p>In this class we will be using a few conventions thoughout the entire class.  These conventions should be followed on all labs, unless changes are explicitly stated in the lab.</p>
+    
+    <p><b>I/O pins:</b><br> Input and Output pins are how data and control signals are passed to and from your sub-circuits. There are two places you can create Input and Output pins. The most obvious place is from the main tool bar located at the top of the screen.  Figure 1 shows where the Input and Output pin buttons are located. <br> <img src="./CLA1_files/IOPins.JPG" alt="I/O Pins"><br> Fig. 1<br> <br> The other not so obvious place is from the Base library.  Figure 2 shows where I/O pin tool is.<br> <img src="./CLA1_files/BaseLibrary.JPG" alt="Base Library I/O Pins"><br> Fig. 2<br> <br> I would recommend using the buttons located in Figure 1. You may choose which ever method you like, although, if you decide to use Figure 2, then you will need to make sure every time you are adding a pin, you choose whether or not it is an input or output pin.<br> <br> As with every component in Logisim, there are properties to Input and Output pins.  Figure 3 shows the properties associated with an input pin. These properties are the same for an output.  The only difference is that the "Output?" field is set to yes.<br> <img src="./CLA1_files/InputPinProperties.JPG" alt="I/O pin properties"><br> Fig. 3<br> <br> As you can see, there are quite a few things you can set on an I/O pin.  The following are the main conventions for this class.</p>
+    <ul>
+      <li>All I/O pins must have a label</li>
+      <li>All Input pins must be attached to something</li>
+      <li>All Input pins must not be "Three-state"</li>
+      <li>All Output pins must be "Three-state"</li>
+      <li>All Data input pins will face East</li>
+      <li>All Data output pins will face West</li>
+      <li>All Clock input pins will face South</li>
+      <li>All Control input pins will face North</li>
+    </ul>
+    <p>These conventions will not change for any lab, unless it is explicitly stated.</p>
+    
+    <p><b>Gates and Subcircuits:</b></p>
+    <ul>
+      <li>All input pins on any gate or subcircuit must be attached to something. </li>
+    </ul>
+    
+    <p><b>Schematic Drawings:</b> <br> Figure 4 demonstrates the qualities that are necessary in a good schematic drawing. <br> <img src="./CLA1_files/GoodExample.JPG" alt="Good Example"> <br> Fig. 4 <br> As you can see, the drawing has good left to right flow.  The inputs are on the left side of the screen and one can easily follow the logic flow to the output on the right side.  Also, the circuit is compact, but not crowded.  <br> <br> Figure 5 demonstrates the qualities of a bad schematic drawing. <br> <img src="./CLA1_files/BadExample.JPG" alt="Bad Example"> <br> Fig. 5 <br> As you can see, this drawing is very hard to follow.  The two circuits, Fig.4 and Fig.5 have the same logical function, but Fig.4 is much easier to follow what's going on.  The first noticeable mistake is that the inputs are on the right hand side of the screen and the circuit is stretched very far apart for a simple circuit.  Another mistake is that there are no labels on any of the pins.  You can also see a wire going through the output pin to connect a LED to the output.  This is not the proper way to make a connection.  Finally, you can see there are pins left open on the AND &amp; OR gates.  Any gate that is used should have all pins used. <br> Below is a list of attributes that are necessary for an aesthetically pleasing circuit and must be followed for all circuits drawn in this class,  unless explicitly told otherwise in the lab.</p>
+    <ul>
+      <li>Left to Right flow</li>
+      <li>All Inputs and Outputs labeled</li>
+      <li>Compact, but not crowded</li>
+      <li>No wires running through any components</li>
+      <li>All pins must be used on gates</li>
+    </ul>
+    Figure 6 is another example of a bad schematic drawing.  This circuit demonstrates a circuit being too crowded.  Inputs should never be directly connected to outputs.  They should always have a wire connecting them.  <br> <img src="./CLA1_files/BadExample2.JPG" alt="Another Bad Example"> <br> Fig. 6 <br>
+    <p>&nbsp;</p>
+    </div>
+    <div id="footer1">
+    <p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:55:06</p>
+    </div>
+  </div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA1_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA1_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

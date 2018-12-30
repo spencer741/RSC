@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./OLA8_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./OLA8_files/CLA.css" type="text/css" media="screen">
+	<link href="./OLA8_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Open Lab 8</h1>
+<h2>Programming the RSC</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>In order to write programs for the RSC, you must first learn the assembly language for this computer. Your microcode listing contains all the assembly language instructions. Use these instructions to write two different programs as described below. You will be using an RSC emulator to write and test your program. Download the RSC emulator from the class page and read the READ ME FIRST!.txt file on how to run the emulator. Although we will be using the assembly language from our microcode, the emulator uses slightly different spellings of some of the instructions.&nbsp; Use the emulator's version of each instruction when writing your programs.&nbsp; If you don't use the same spelling, you program will not compile properly.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Write a program which will subtract 8 from 10 (decimal) and display the output. Use the emulator to compile and run the program to verify that it works. Once you have a working program, create a text file called <code>ram1.txt</code> in notepad containing the Assembly Code.</li>
+<li>Write a program which will perform the following operations, store each result in a separate memory address and display each value. This program must use every instruction available, with the exception of jump and jumpz. These two are not required, but you may use them if you like. Save the Assembly code in notepad as <code>ram2.txt</code>: (The following values are in Hex)
+<ul class="monospace">
+<li>A9 + 2B</li>
+<li>A9 - 2B</li>
+<li>A9 AND 2B</li>
+<li>A9 OR 2B</li>
+<li>ASHR A9</li>
+<li>AF + 1</li>
+<li>NOT D1</li>
+</ul>
+</li>
+<li>Come up with a program of your choosing which solves a common problem. The program must contain a loop(!) and produce some output. Save the Assembly code in notepad as <code>ram3.txt</code>. Fully comment your code along with a description of what it does! <strong>Your program idea must first be presented and accepted by the lab instructor.</strong> You may either email your proposal or come by during office hours to present your proposed project. Until you have confirmation from the lab instructor, you must assume that your program will not be accepted.
+<p>If you need an help coming up with an program idea take a look here:  <a style="text-decoration: underline" href="https://cs.mtsu.edu/~acw4a/3130" target="_blank">Fall 2013</a> or <a style="text-decoration: underline" href="https://www.cs.mtsu.edu/~alm6k/projects.php" target="_blank">Spring 2013</a></p>
+<p>You may turn in your <code>ram3.txt</code> program with this lab or wait and turn it in when you submit your final RSC project. If you decide to wait, you will not receive a grade on this lab until your final RSC has been demonstrated with the ram3 program you write. However, you should present your idea within a week from lab assignment.</p>
+</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>Text files must be written in the emulator version of RSC Assembly code</li>
+<li>Your files must work properly using the Emulator and perform desired operations. Therefore, make sure that your <code>ram3.txt</code> file includes comments so that the lab grader will know the expected output.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul class="monospace">
+<li>ram1.txt</li>
+<li>ram2.txt</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer1">
+<p>Copyright © MTSU 2012</p>
+</div>
+						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./OLA8_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./OLA8_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

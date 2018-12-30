@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./OLA9_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./OLA9_files/CLA.css" type="text/css" media="screen">
+	<link href="./OLA9_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Open Lab 9</h1>
+<h2>RSC</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>In previous labs you should have finished the connections for the RSC, excluding the placing of the PLDs. This is the final lab for the semester. You should finish wiring the RSC and load memory with the three programs you wrote in the previous lab to demonstrate that your computer executes the programs correctly. <br><span style="text-decoration:underline; font-size:12pt"> This lab is worth 100 points, so make sure it works properly.</span></p>
+<p><span style="font-size: 14pt;"><strong>This lab is due at the specified time (04/27/2018 @ 18:00). Late labs will not be accepted. NO EXCEPTIONS! There is only one submission for this lab!</strong></span></p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Add your PLDs to the Control Unit and finish wiring the RSC.</li>
+<li>From your <code>OUTR</code> register, use a splitter and add eight <strong>hexadecimal</strong> displays to allow the output to be seen in Hex rather than Binary. If your program uses ASCII in some form, you may use a TTY display. To do this you will need to split off the 7 least significant bits to run into the input of the TTY. Also you will need to run the <code>OUTR_LD</code> signal to the load pin on the TTY. Don't forget to connect the clock signal also.</li>
+<li>This step is optional, although very useful for debugging. Add probes to which ever lines you would like to visually monitor while the computer is running. The nice thing about probes is that it will automatically conform to whatever bit width the line you are attaching it to is. For example, if you want to monitor what value is in the <code>PC</code> register, you could put a probe on the <code>PC_OUT</code>, and now you will be able to monitor the <code>PC</code> value as the computer is running. It might be especially helpful to monitor the values of the <code>ACC</code> and <code>R</code> register, or anywhere you feel it is necessary.</li>
+<li><strong>Test your RSC <span style="text-decoration: underline;"><em>thoroughly</em></span></strong>! Make absolutely certain that it works with all of your programs (which should work in your computer if it works in the emulator!) A tip for testing your RSC circuit: start with the RAM1 file, as it doesn't do very much. Load this program into your RAM module and then manually tick your Clock (Ctrl+T or the finger tool) and convince yourself that the appropriate control lines coming out of your control unit are active at the correct combination of T-values, D-values, and the Clock's state. If something doesn't work properly, double-check your PLD wiring in your control unit in addition to double-checking your expressions if you suspect the wiring is correct. If you have trouble pinpointing a problem, ASK QUESTIONS <strong>NOW</strong> rather than later! Don't wait until an hour before the project is due, because chances are if there's one issue, there will be others. :)</li>
+<li><s>Print off a screenshot of your RSC by going to <strong>File -&gt; Export Image</strong> in Logisim.</s> Find the lab instructor to demo your computer. <strong>You will have to demo all three RAM files you created</strong>. Make sure you explain what your RAM3 does before the demo. Once you have demonstrated that your computer is working properly, the instructor will initial your printed screenshot. <s>Once your RSC screenshot has been signed off on,</s> submit your entire project (<code>RSC.circ</code>, <code>PLD.circ</code>, <code>custom_reg.circ</code>, all three RAM files, etc.) to the OLA 9 dropbox. <span style="text-decoration: underline;"><strong>Any submission to the OLA 9 dropbox that is not signed off will not be accepted.</strong></span></li>
+<p style="font-size:12pt"><s>It is strongly encouraged that you sign up for a time to due your demo.</s></p>
+<!-- <p style="color:red">I will be in my office during due date (04/27/2016) from 9.00am till 14.00pm </p> -->
+
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>Computer must be fully functional. All instructions must work as intended.</li>
+<li>You must run the above simulations under the supervision of the lab instructor. Make sure they initial off on your printed page that the RSC ran.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul>
+<li><code>RSC.circ</code> and any other circuit files needed for the RSC (e.g. <code>PLD.circ</code> and <code>custom_reg.circ</code>)</li>
+<li>All three RAM files</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer1">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 21:00:32</p>
+</div>
+						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./OLA9_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./OLA9_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

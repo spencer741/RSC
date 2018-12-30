@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA10_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA10_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA10_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 10</h1>
+<h2>Control Signals #2</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>In this lab you will build 7 PLD circuits. You will use the same method discussed in Closed Lab 9 to create the following circuits. Note that each PLD should be named as indicated:</p>
+<ul>
+<li class="monospace">R_LD</li>
+<li class="monospace">R_BUS</li>
+<li class="monospace">S_LD</li>
+<li class="monospace">ACC_CLR</li>
+<li class="monospace">ACC_LD</li>
+<li class="monospace">ACC_BUS</li>
+<li><code>ALU_SEL</code>
+<ul>
+<li>A note about the <code>ALU_SEL</code> PLD: remember that the ALU has three select bits to decide which of its 8 operations to perform, so the <code>ALU_SEL</code> PLD should have <span style="text-decoration: underline;"><strong>three 1-bit outputs instead of one</strong></span>. This can be done by adding additional outputs to the Output tab in the Combinational Analysis dialog. Name the outputs: <code>S2</code>, <code>S1</code>, and <code>S0</code>.</li>
+<li>Another note about the&nbsp;<code>ALU_SEL</code>&nbsp;PLD: you can disregard timing signals for this PLD, as the ALU is not a synchronous component. When (in regards to t-values) the ALU does its operations is irrelevant since the ACC will not load the calculated value unless it is signaled to do so. That is, you only need d-values in your expressions for the <code>ALU_SEL</code>&nbsp;PLD.</li>
+</ul>
+</li>
+</ul>
+<p>NOTE: Be sure to include the appropriate clock input (<code>!clock</code>) for all the PLDs involving LOAD signals!</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Examine microcode for the RSC and look for every reference for the needed signal.</li>
+<li>Obtain the logical expression for the needed signal and translate the control signal to a signal that Logisim understands.</li>
+<li>Add the Logisim expression to your <code>Control_PLDs.txt</code> file.</li>
+<li>Open the <code>PLDs.circ</code> circuit file and and create a part appropriately named for the assigned PLD.</li>
+<li>Open Combinational Analysis and use the Expression-analysis sytem to create the circuit. Enter the appropriate input names on the Inputs tab. Enter the appropriate output name on the Outputs tab. The output name should be the same as the circuit name. Don't forget to click <strong>ENTER</strong> to register the expression to the chosen output.</li>
+<li>Select <strong>Build Circuit</strong> and name the circuit after its output and generate the circuit. Be sure to select the <code>PLDs.circ</code> as the destination.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul class="note">
+<li>All normal conventions apply, with the exception that all input pins on PLDs will face east and all output pins will face west.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul class="note">
+<li>A zipped file containing:
+<ul>
+<li><code>PLDs.circ</code></li>
+<li><code>Control_PLDs.txt</code> containing ALL of your Boolean expressions up to this point</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer1">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:59:23</p>
+</div>
+						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA10_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA10_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

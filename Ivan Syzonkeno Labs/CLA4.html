@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA4_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA4_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA4_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 4</h1>
+<h2>Arithmetic Unit</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>The ALU (Arithmetic Logic Unit) is a major component of the CPU. It performs arithmetic operations and responds to logic (yes/no) questions. The ALU must also be able to transfer values unaltered. The ALU is a combinational circuit that consists of two major sub-circuits: an arithmetic unit (AU) and a logic unit (LU). An arithmetic unit generally consists of full adders, subtractors, multipliers, etc., while the logic unit consists of numerous AND, OR, NOR, etc. gates. Today, we will build the arithmetic unit (AU). The LU will be added in a later lab.</p>
+<p>The arithmetic unit of the RSC must be able to take in two 32-bit operands and output one 32-bit number which is the result of one of four possible arithmetic operations. If the inputs are called A and B, and the output is called F, then the arithmetic unit must be able to perform:</p>
+<ul>
+<li>
+<div style="display: inline-block; width: 70px;">F = A – B</div>
+(subtraction)</li>
+<li>
+<div style="display: inline-block; width: 70px;">F = A + B</div>
+(addition)</li>
+<li>
+<div style="display: inline-block; width: 70px;">F = A + 1</div>
+(increment)</li>
+<li>
+<div style="display: inline-block; width: 70px;">F = B</div>
+(transfer)</li>
+</ul>
+<p>Since there are four operations to be performed, we will need two 1-bit inputs (<span class="monospace">S1</span> and <span class="monospace">S0</span>) to control which operation is to be calculated. Your arithmetic unit should operate as follows:</p>
+<table>
+<tbody>
+<tr>
+<td class="monospace">S1</td>
+<td class="monospace">S0</td>
+<td>Result</td>
+</tr>
+<tr>
+<td class="monospace">0</td>
+<td class="monospace">0</td>
+<td>F = A - B</td>
+</tr>
+<tr>
+<td class="monospace">0</td>
+<td class="monospace">1</td>
+<td>F = A + B</td>
+</tr>
+<tr>
+<td class="monospace">1</td>
+<td class="monospace">0</td>
+<td>F = A + 1</td>
+</tr>
+<tr>
+<td class="monospace">1</td>
+<td class="monospace">1</td>
+<td>F = B</td>
+</tr>
+</tbody>
+</table>
+<p>To build this machine, you will use Logisim's 32-bit adder to perform any actual arithmetic. Note that the 32-bit adder also contains carry-in and carry-out values that will manipulate the adder to produce the correct result for each operation.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Open Logisim and open your <span class="monospace">generic.circ</span> circuit.</li>
+<li>Use <strong>SAVE AS</strong> and save the circuit as <span class="monospace">RSC.circ</span>. This will become your main RSC file. <strong>Make sure you keep it backed-up!</strong></li>
+<li>Add the following circuits (Click <strong>Project → Add Circuit)</strong> to the RSC project: <span class="monospace">Arith_U</span>, <span class="monospace">Logic_U</span>, and <span class="monospace">ALU</span> and remove the main circuit.</li>
+<li>The <span class="monospace">Arith_U</span> circuit must perform mathematical operations, including addition and subtraction, on two 32-bit numbers. You may want to design this circuit on paper before actually building it in Logisim. Make sure you understand why a multiplexer is needed and how to connect the multiplexer to the adder.</li>
+<li>Open the <span class="monospace">Arith_U</span> circuit and build this circuit. This circuit should contain:
+<ul>
+<li>Two 32-bit inputs called <em><span class="monospace">A</span></em> and <em><span class="monospace">B</span></em> facing east.</li>
+<li>Two 1-bit inputs called <em><span class="monospace">S1</span></em> and <em><span class="monospace">S0</span></em> facing north.</li>
+<li>One 4x1 multiplexer. Look under <strong>Plexers</strong> and choose a multiplexer with 2 select bits and 32 data bits. This multiplexer should perform as indicated in the AU table described previously. NOTE: If <span class="monospace">S1 = 1</span> and <span class="monospace">S0 = 1</span>, the mulitplexer should output <em><span class="monospace">B</span></em>. This transfer operation will be handled with an additional multiplexer later.</li>
+<li>One 2-bit splitter. This will be used to connect the select lines (<em><span class="monospace">S1</span></em> and <em><span class="monospace">S0</span></em>) to the mulitplexer.</li>
+<li>One 32-bit adder circuit. Don't forget to provide the appropriate input for the carry-in (<span class="monospace">cin</span>). We will not use the carry-out (<span class="monospace">cout</span>) output.</li>
+<li>One 32-bit output pin called <em><span class="monospace">AU_out</span></em> facing west.</li>
+<li>? - Other additional logic gates as needed. You will need to figure out the proper input for the carry-in signal for the adder. Look at the AU table described previously and determine when the carry-in should be 1.</li>
+<li>One 2x1 multiplexer. Choose a multiplexer with 1 select bit and 32 data bits. This multiplexer is needed to handle the transfer operation noted when <span class="monospace">S1 = 1</span> and <span class="monospace">S0 = 1</span>. This multiplexer should be placed after the adder circuit and before the output pin.</li>
+<li>MAKE SURE: The Include Enable? option in the properties box for the multiplexers is set to No, failure to do this will result in you having an extra open input pin to take care of.</li>
+</ul>
+</li>
+<li>You may use <strong>only one adder</strong>. You may not use subtractors, comparators, negators, counters, or any other complicated components. How do you perform three arithmetic operations with only one adder? That's what the multiplexers are for.</li>
+<li>Make sure all inputs and outputs have been labeled properly!</li>
+<li>Make sure all inputs and outputs have been labeled properly... again! This is very important. The labels of your input and output pins describe what each pin does when the AU is added as a subcircuit to another circuit.</li>
+<li>Set the Shared Label of your <span class="monospace">Arith_U</span> circuit to <em><span class="monospace">AU</span></em>. Make sure you are editing your <span class="monospace">Arith_U</span> circuit and nothing is selected inside it; you should see the Shared Label option in the properties box on the left. This label will be on the subcircuit when it is added to another circuit.</li>
+<li>Test your circuit with the following inputs and verify that your circuit works properly when <span class="monospace">A = ABCD1234</span> (hex) and <span class="monospace">B = 06AE18AD</span>(hex).
+<table>
+<tbody>
+<tr class="headrow"><th class="stdtbl monospace">S1</th><th class="stdtbl monospace">S0</th><th class="stdtbl">Output should be:</th></tr>
+<tr>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">A51EF987</td>
+</tr>
+<tr>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">B27B2AE1</td>
+</tr>
+<tr>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">ABCD1235</td>
+</tr>
+<tr>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">06AE18AD</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="step">Test your circuit with the following values and create a log file with the results. The file should be called <span class="monospace">AUtest_log.txt</span>.<br> Use <span class="monospace">A = 9F6E1D1C</span> and <span class="monospace">B = 215CA2FE</span> for test values. Make sure you include A and B in your input file, so the order of the header of the table should be A B S1 S0 AU_out.
+<table class="stdtbl" border="3">
+<tbody>
+<tr><th class="monospace">S1</th><th class="monospace">S0</th><th>Output</th></tr>
+<tr>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">&nbsp;</td>
+</tr>
+<tr>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">&nbsp;</td>
+</tr>
+<tr>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">0</td>
+<td class="stdtbl monospace">&nbsp;</td>
+</tr>
+<tr>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">1</td>
+<td class="stdtbl monospace">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="step">Submit your Zip file containing the <span class="monospace">RSC.circ</span> and your <span class="monospace">AUtest_log.txt</span> to class submission page under Closed Lab 4.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul class="note">
+<li class="note">All the usual, plus: it must work. <em><strong>This is a critical lab</strong></em>. Test it, test it, test it. You do NOT to want reach the last week of class frantically and fruitlessly trying to debug a program which refuses to work not because there's an error in the code but because you wired something to the wrong pin on a multiplexer in your ALU. Get it right the first time, and ask for help if you need to.</li>
+<li>The following is what your circuit should look like if you were to add the AU to another circuit.<br> <img src="./CLA4_files/AU.jpg"></li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul class="note">
+<li>A zipped file containing:
+<ul>
+<li><span class="monospace">RSC.circ</span></li>
+<li><span class="monospace">AUtest_log.txt</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:56:18</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA4_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA4_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

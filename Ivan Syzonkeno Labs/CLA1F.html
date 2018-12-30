@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA1F_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA1F_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA1F_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p>
+<div id="header1">
+<h1>Closed Lab 1</h1>
+<h2>(n × 3) + 6</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview1">Overview</h1>
+<p>Practice using Logisim and build the <em>F(n) = n × 3 + 6</em> circuit in simulation. Refer to the Logisim Overview.</p><p style="text-align: center; font-size: 1.5em;"><span style="font-style: italic;">Pop Quiz:</span> How many output bits will you need to represent <em>f(n)</em>, if <em>n</em> can be any 2-bit number?</p><p>If you have correctly answered the above question, then you will be able to make a truth table outlining all possible inputs to your machine and their corresponding outputs. This will be your first step. After that, you'll be able to analyze your truth table and determine the Combinational Logic which correctly generates each output bit based on the two input bits. You will want to diagram this logic with pencil and paper. Based on that diagram, you will finally be able to design the circuit itself.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Refer the Logisim Overview and be sure to you have created the indicated generic.circ file.</li>
+<li>Refer to and familiarize yourself with the Logisim Conventions. Especially make sure that you follow the conventions regarding pin direction.</li>
+<li>Draw the truth table that represents the behavior of this circuit — show all possible inputs and correct outputs for each input</li>
+<li>Analyze the table and determine the combinational logic that guides each output bit. You should develop an algebraic expression for each output bit.</li>
+<li>Diagram the combinational circuit with a complete logic design diagram.</li>
+<li>Open Logisim and open your generic.circ file.</li>
+<li>Now, use Save As and save the circuit as initial_labs.circ</li>
+<li>Look at the top of the libraries tree and right click on the main circuit and choose Rename Circuit.</li>
+<li>Rename the main circuit - "x3plus6"</li>
+<li>Add the following I/O:
+<ul>
+<li>2 1-bit inputs facing east each with appropriate label</li>
+<li>4 1-bit outputs facing west each with appropriate label</li>
+</ul>
+</li>
+<li>Use Logisim to create your first closed lab</li>
+<li>Save the circuit.</li>
+<li>Read the following requirements before submitting your circuit for grading.</li>
+</ol>
+<h1 id="requirements1">Requirements</h1>
+<ul class="note">
+<li>As always, all requirements from the lab syllabus apply, as well as the following requirements</li>
+<li>The circuit must be interactive. Toggling the input pins with the Poke Tool should cause the output value (represented by the four output pins) to update instantly and correctly.</li>
+<li>The circuit must be aesthetically pleasing. Arrange inputs, outputs, and other devices so that wires flow in parallel and remain untangled. One should be able to follow the flow of the logic by the flow of the wires.</li>
+<li>Basic conventions of an aesthetically pleasing circuit:
+<ul>
+<li>Left to Right flow. Inputs on the left, outputs on the right, and a general left-to-right logical progression.</li>
+<li>Organization: How the circuit is laid out should reflect and guide how one is supposed to think about the circuit.</li>
+</ul>
+</li>
+</ul>
+<h1 id="submissions1">Submission</h1>
+<ul class="note">
+<li>A zipped file containing:
+<ul>
+<li>initial_labs.circ</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer1">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:55:27</p>
+
+						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA1F_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA1F_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</div></body></html>

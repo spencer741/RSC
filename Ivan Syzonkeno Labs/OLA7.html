@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./OLA7_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./OLA7_files/CLA.css" type="text/css" media="screen">
+	<link href="./OLA7_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Open Lab 7</h1>
+<h2>Control Unit and the Z Register</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>The Control Unit is a very complicated circuit. We know by observing the microcode for the RSC that there are three main components required:</p>
+<ul>
+<li>The D signal generator which outputs 16 different signals indicating the instruction to be executed.</li>
+<li>The Timing Signal Generator which outputs 8 different signals indicating which step of the machine cycle is to be performed next.</li>
+<li>The Z register which outputs 1 bit. It's purpose is to aid in allowing non-sequential programming.</li>
+</ul>
+<p>The purpose of this lab is to set up the beginning hardware needed for the Control Unit in such a way that hopefully it will be easy to recognize and use these 25 signals. At this point, everything you need for the RSC should also be complete and available in your <code>RSC.circ</code> project, either as a part of the project's library or in an imported library. This does not include the control signal PLDs, which we will be building in the remaining closed labs. You should have already created the bus and added the principle processing components. All that remains, then, is to create the Z Register and Control Unit and wire them into the system. This is not difficult, really, it's just big.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>First, we need a 1-bit flag register called&nbsp;<code>Z</code>&nbsp;for our RSC. The&nbsp;<code>Z</code>&nbsp;register is used to indicate the presence of zero in the&nbsp;<code>ACC</code>. In other words, the&nbsp;<code>Z</code>&nbsp;register should only contain a&nbsp;<code>1</code>&nbsp;if, the last time it was told to load, the&nbsp;<code>ACC</code> contained a value of zero. Note the requirements for this register:
+<ul>
+<li>It NEVER counts.</li>
+<li>It NEVER clears.</li>
+<li>When a&nbsp;<code>Load</code>&nbsp;signal is given, the register loads a&nbsp;<code>1</code>&nbsp;(on the next clock tick) if its data input is all zeroes. It loads a&nbsp;<code>0</code>&nbsp;if <strong>ANY</strong> of the data bits are on (think similar to an OR gate).</li>
+<li>It takes input directly and continuously from the&nbsp;<code>ACC.</code></li>
+<li>It should have inputs for&nbsp;<code>Data</code>,&nbsp;<code>Load</code>, and&nbsp;<code>Clock</code>, and an output for the&nbsp;<code>Z</code>&nbsp;flag.</li>
+</ul>
+(<strong>NOTE:</strong> if the 1-bit register that was given doesn't show up properly when dragged into the circuit you'll need to create a new circuit, copy the contents from the 1-bit register into it then delete the old 1-bit register and make sure the new one is named 1-bit register)<br><br>
+Now, create a new part for the&nbsp;<code>Z</code>&nbsp;register. To build it, you will need to encapsulate your generic 1-bit register with extra circuitry. Create a new circuit in your RSC project library and call it&nbsp;<code>Z_Reg</code>. Bring in your 1-bit register. Place an output pin on the right labeled&nbsp;<code>Z_out</code>, and a 1-bit input device called&nbsp;<code>Clock</code>&nbsp;on top, as usual. Then give it a 32-bit input pin on the left labeled&nbsp;<code>ACC_in</code>, through which the contents of the&nbsp;<code>ACC</code>&nbsp;may enter later. Now, configure the rest of the register so that it meets the above requirements. Note that the register's&nbsp;<code>Clear</code>&nbsp;pin should be dealt with internally. Apart from your 1-bit register, the only other devices you are allowed to use to build the&nbsp;<code>Z_Reg</code>&nbsp;are basic logic gates.</li>
+<li>Add&nbsp;<code>Z</code>&nbsp;to your RSC, just south-east of the Bus loop, connected to the&nbsp;<code>ACC</code>&nbsp;register for direct data input.</li>
+<li>Now,&nbsp;add a new circuit to your&nbsp;<strong><code>RSC</code></strong>&nbsp;project library called <strong><code>Control</code></strong>. Once added, double click <strong><code>Control</code></strong>.</li>
+<li>The Registers, RAM unit, and ALU all need control signals. The first thing we need to do is add outputs for all these control signals. Approximately 10 to 12 Grid Dots from the left hand side of the schematic page and 20 to 25 Grid Dots down from the top, add the following outputs in order facing East. This is one time that we will be going against convention. The labels for each output should be the same as listed here (minus the bit designations). (<strong>NOTE</strong>: You don't need to worry about putting large amounts of space between the outsputs for this lab, in a future lab we'll finish the Control Unit and you can space the outputs then)
+<ul>
+<li><code>RAM_R'W</code> (1-bit)</li>
+<li><code>RAM_EN</code> (1-bit)</li>
+<li><code>AR_LD</code> (1-bit)</li>
+<li><code>PC_BUS</code> (1-bit)</li>
+<li><code>PC_INC</code> (1-bit)</li>
+<li><code>PC_LD</code> (1-bit)</li>
+<li><code>DR_BUS</code> (1-bit)</li>
+<li><code>DR_LD</code> (1-bit)</li>
+<li><code>R_BUS</code> (1-bit)</li>
+<li><code>R_LD</code> (1-bit)</li>
+<li><code>ACC_BUS</code> (1-bit)</li>
+<li><code>ACC_CLR</code> (1-bit)</li>
+<li><code>ACC_LD</code> (1-bit)</li>
+<li><code>ALU_S</code> (3-bits)</li>
+<li><code>OUTR_LD</code> (1-bit)</li>
+<li><code>Z_LD</code> (1-bit)</li>
+</ul>
+</li>
+<li>A couple Grid Dots to the right of the <code>RAM_R'W</code> output pin and about 10 Grid Dots from the top of the bread board, add a 1-bit output facing south, labeled <code>IR_LD</code>.</li>
+<li>To the right of the <code>IR_LD</code> output pin approximately 12-13 Grid Dots, add a 1-bit input facing south labeled <code>Clock</code>.</li>
+<li>Now we need to add lines for the D and T signals, as well as the clock and Z signals. We will be adding these D and T signal lines in groups of 4. Figure 1 shows an example of how these lines will appear. To the right of the output pins that are facing East and below the output pin facing South, add 1 vertical wire that has a length of 1800 (You can see the length of a wire in the properties). Once you have the line drawn, copy and paste this line until you have a group of 4 wires next to each other. Now that you have a group of 4 lines, copy and paste the group to make your schematic look similar to Figure 1. There should be 1 dot in between each group of 4 in the same set of signals and there should be 2 dots in between any two sets of different signals. Figure 1 should give you the general idea. <img src="./OLA7_files/ControlLines.JPG" alt="Control Lines"><br>Fig. 1</li>
+<li>Add your <code>Timer</code> and <code>Decoder</code> chips to the circuit. They should be placed approximately 30-40 Grid Dots apart from each other. Your <code>Timer</code> circuit should be above your <code>Decoder</code> circuit. They should also be placed about 20 Grid Dots to the right of the lines you just added and about 10 Grid Dots South of the top of the wires.</li>
+<li>Next add one 32-bit input labeled <code>IR_In</code>. It should be placed to the right of the <code>Decoder</code> and facing West. Now add one 4-bit output labeled <code>D</code> facing West and one 8-bit output labeled <code>T</code> facing West. These are output pins for debugging later on. They will allow us to see what instruction is being decoded and the current T step of the computer. The 4-bit output should be placed just below the 32-bit input, and the 8-bit output should be placed to the right of the <code>Timer</code> circuit.</li>
+<li>Add a 1-bit input labeled <code>Z_In</code> facing north. This will receive its input from the Z Register. It should be placed approximately 15 Grid Dots south of the <code>Decoder</code> chip.</li>
+<li>Now that all the I/O is added, connect the <code>Timer</code> and <code>Decoder</code> outputs to their proper wire bundles (The left most wire in each bundle should be the least significant bit, also crossing the bundled wires here is acceptable). The clear pin for the <code>Timer</code>&nbsp;will be left open for this lab. Also, connect the following I/O pins to their appropriate places.
+<ul class="monospace">
+<li>Clock</li>
+<li>IR_In</li>
+<li>Z_In</li>
+</ul>
+</li>
+<li>Add an instance of your 1-bit register about 14-18 Grid Dots south and 2-4 Grid Dots east of the <code>Timer</code>. Label this as your <code>S</code> register, and connect its output to the <code>Stop</code> pin on the <code>Timer</code>. Configure this register so that, if given a load signal, it automatically loads a 1. Configure it to never clear and connect the clock input to the appropriate place (you should be able to go straight up to cloak line that the Timer used).  The Load pin will have nothing hooking up to it for the time being.</li>
+<li>Now add an instance of the <code>Control</code> circuit to the RSC. It should be placed to the right of the bus loop (about 8-10 Grid Dots) and in between the <code>IR</code> and <code>Z</code> registers.</li>
+<li>Wire all of I/O pins from the control unit to their appropriate places in the RSC. The only pins that will be left open for now are the&nbsp;<code>D</code>&nbsp;output,&nbsp;<code>T</code>&nbsp;output, and the <code>Clear</code> input of the <code>Timer</code> in the Control Unit (they will be added later), and the <code>Load</code> of the <code>S</code> register in the Control Unit.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>The&nbsp;<code>Z</code>&nbsp;register should consist of a 1-bit register with the appropriate support circuitry. Within&nbsp;<code>Z</code>, the 1-bit register's unused control signals should be properly disabled.</li>
+<li>Below is what your Control Unit should look like when added to another sub circuit (minus the labels of course). <br><img src="./OLA7_files/ControlUnit.JPG" alt="Control Unit"></li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul>
+<li><code>RSC.circ</code></li>
+<li>Any other files needed to open <code>RSC.circ</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer1">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 21:00:08</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./OLA7_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./OLA7_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

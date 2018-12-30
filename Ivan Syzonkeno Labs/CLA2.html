@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA2_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA2_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA2_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p>
+<div id="header1">
+<h1>Closed Lab 2</h1>
+<h2>Parity Generator &amp; Parity Checker</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview1">Overview</h1>
+<p>In this lab you must create two circuits using Logisim. The first, which we will call the Parity Generator, will generate the parity bit for a three bit number, ensuring even parity is maintained. The other, Parity Checker, will report the presence or absence of even parity in a four-bit number.</p>
+<p>Parity simply means, "How many bits are on?" There are two types of parity: even parity and odd parity. If a four bit number contains an odd count of 1's, then it has odd parity. If it contains an even count of 1's, then it has even parity. The concept of parity is usually used for error detection. If two computers agree beforehand that they will always communicate four bits at a time, and that every four bit package will have even parity, then if a four-bit package arrives that does not contain an even number of 1's, the receiving computer knows something garbled the transmission and it can automatically ask for the package to be resent. Of course you'll never get every 4-bit package to have even parity by chance, but if you break your message into 3-bit packages and add a fourth "parity bit," you can force the issue.</p>
+<p>In this lab, you will create an even parity generator circuit. This circuit will take a 3-bit number as input, tack on a parity bit, and output the completed 4-bit number with even parity. You will also create a parity checker circuit which will check four bits for even parity. Your parity checker circuit should output a 1 if the 4-bits do not indicate even parity.</p>
+<p>Splitters: In this lab and future labs, you will use a couple of new tools related to wire bundles. Rather than having multiple single-bit input pins, you should simplify your circuit by creating a single, multi-bit input pin. Any wire drawn from a multi-bit source will be black, rather than green, indicating that it is actually a wire bundle. You will then use a splitter to isolate the individual wires in the bundle for logical purposes. Logisim's splitters, found in the Wiring Library, are fantastically intuitive and robust. Use them freely.</p>
+<p>Logging: In this lab, you will also use the Logging feature of Logisim for the first time. The logging feature allows the user to create a data file, a log, containing simulation outcomes of the user's circuit. The Logging feature is found in the Simulate menu option. The Selection tab allows the user to select inputs and outputs to be placed in the log file. For this lab, you will create two logs, one for each circuit. Although we will prefer hexadecimal in the future, you should set the radices of both logged pins to binary for this lab. The Table tab will show you the results of your log in progress. You will use the File tab to set an output file for the log, with header line included. Each circuit tested should get its own log file.</p>
+<p>How to log circuit inputs/outputs:</p>
+<ol>
+<li>Click on the Simulate menu item.</li>
+<li>Choose Logging.</li>
+<li>Click on the Selection tab and choose values to be recorded in the log (usually the inputs and outputs of a circuit).</li>
+<li>Click the File tab and select the location where the log file is to be stored. Name the log file appropriately. *NOTE* You must add a '.txt' to the file name for it to open properly. The header line should be included. Take note of the ENABLE button on this tab. With the Logging window open, any change you make to the circuit's inputs with the poke tool will generate a new row on the Table tab. However, this row will only be amended to the log file if File Output is Enabled. When you click the button to enable file-out, it immediately prints the last line on the Table. So, if you only want to log a few specific cases, rather than everything in between, you may do so. Simply begin logging with file output disabled. Set up the first state you want to log. Then quickly Enable and Disable file output. Change to the second state you want to log, and repeat. It will print those lines and nothing else. This will be a very important technique later on, when your lab instructor won't have time to sort through a million different inputs in a complicated circuit and will thus ask for the logged results of specific scenarios. Set up that scenario; give the file-out a quick on/off, and then move on to the next requested scenario.</li>
+<li>Cycle through the input values of your circuit. For grading purposes, the table created by the Logging feature should display all input values in order. For example, if you have a 3-bit input, the table inputs should be 000, 001, 010, 011, etc.</li>
+<li>If you click the Table tab you should see a table that includes your input and output values generated by your circuit.</li>
+<li>Click the File menu option in the Simulation window and choose Save. Be sure to give the log file an appropriate name.</li>
+</ol>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Design the parity generator circuit on paper. Come up with the truth table and algebraic expression for this circuit. Simplify if possible. Remember, this circuit should have 3 inputs and 4 outputs that ensures even parity.</li>
+<li>Design the parity checker circuit on paper. Come up with the truth table and algebraic expression for this circuit. Simplify if possible. Remember, this circuit should have 4 inputs and 1 output which will output a 1 if even parity is not present.</li>
+<li>Draw logic diagrams for both circuits.</li>
+<li>Open Logisim and open your <strong>initial_labs.circ</strong> file (that you created with CLA 1).</li>
+<li>Right-click on the initial_labs library folder and add a new circuit for your parity generator. Name the circuit <strong>generator</strong>.</li>
+<li>Add another circuit to the project library for your parity checker. Name the circuit <strong>checker</strong>.</li>
+<li>Logisim should be properly configured, but, if not, refer to the Logisim Overview.</li>
+<li>Double-click on the parity generator circuit and add the following I/O:
+<ul>
+<li>One 3-bit input facing east</li>
+<li>One&nbsp;4-bit output facing west (<strong>not</strong> four single-bit outputs!)</li>
+<li>One&nbsp;splitter with a fan-out of 3 and a bit width in of 3, facing east.</li>
+<li>One&nbsp;splitter with a fan-out of 4 and a bit width in of 4, facing west.</li>
+</ul>
+</li>
+<li>In the <b>generator</b> circuit, construct the circuit you designed in step #1. You will combine the generated bit with the original input using the splitter to create a 4-bit output (with the parity bit being the least significant -- that is, make sure it's on the right).</li>
+<li>Double-click on the parity checker circuit and add the following I/O:
+<ul>
+<li>One&nbsp;4-bit input facing east</li>
+<li>One&nbsp;1-bit output facing west</li>
+<li>One&nbsp;splitter with a fan-out of 4 and a bit width in of 4, facing east</li>
+</ul>
+</li>
+<li>In the <b>checker</b> circuit, construct the circuit you designed in step #2. &nbsp;The circuit should accept a 4-bit input and have a 1-bit output. It should output a <strong>1</strong> if even parity is not present.</li>
+<li>Test the parity generator circuit and log all possible inputs and outputs of the circuit to produce a log file called <b>generator_log.txt</b>.</li>
+<li>Test the parity checker circuit and log all possible inputs and outputs of the circuit to produce a log file called <b>checker_log.txt</b>.</li>
+<li>Submit a zip file to the proper drop box.</li>
+</ol>
+<h1 id="requirements1">Requirements</h1>
+<ul class="note">
+<li>Everything in the lab syllabus as well as being interactive, aesthetically designed, and fully functional. (Remember labeling is important. All files must be labeled.)</li>
+<li>Remember your I/O pin directions. Data inputs face east, data outputs face west. Control pins face north and clocks face south.</li>
+</ul>
+<h1 id="submissions1">Submission</h1>
+<ul class="note">
+<li>A zipped file containing:
+<ul>
+<li>initial_labs.circ</li>
+<li>generator_log.txt</li>
+<li>checker_log.txt</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:55:56</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA2_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA2_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

@@ -1,0 +1,15 @@
+// Copyright 2018 Joshua L. Phillips
+$('#mainmenu').load("./common.html #mainmenu");
+$('#coursemenu').load("./common.html #coursemenu", function () {
+    $('#coursename').text($coursename);
+});
+$('#syllabusmenu').load("./common.html #syllabusmenu", function () {
+    $('#coursename').text($coursename);
+});
+$('#assignmentmenu').load("./common.html #assignmentmenu", function () {
+    $('#coursename').text($coursename);
+});
+$('#privatemenu').load("./common.html #privatemenu", function () {
+    $('#coursename').text($coursename);
+});
+$('#copyright').text($modtime);

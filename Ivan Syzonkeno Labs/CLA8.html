@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA8_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA8_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA8_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 8</h1>
+<h2>D and T Circuitry</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>In this lab we will begin to build portions (D and T Signal Generators) of the Control Unit for the RSC. The D Signal Generator is a circuit that <em>decodes</em> an instruction after the instruction has been fetched from memory and stored in a register called <code>IR</code> (instruction register). This circuit will send signals throughout the RSC indicating which instruction (Add, Subtract, etc.) should be executed. The T Signal Generator is a circuit which sends <em>timing</em> signals throughout the RSC. The timing signal indicates the current step in the machine cycle that is to be performed (fetch, decode, execute, etc.).</p>
+<p>First, we will build the D Signal Generator. The RSC can perform 16 different operations as discussed in class. Therefore, the D Signal Generator must be able to send out 16 signals (<code>d0</code>, <code>d1</code>, <code>d2</code>, ..., <code>d15</code>) where only one of the sixteen signals is true at a time.</p>
+<h1 id="procedure">Procedure</h1>
+<h3>Building the D Signal Generator</h3>
+<p>Each word in memory or in a register contains 32 bits. A portion of the 32 bits must contain the bits which indicate the operation to be performed. We will use the least significant 4 bits of an instruction to store the instruction. Our task, then, is to take this 4-bit code and use it to power sixteen individual wires, which we will call the D lines. We need to build a circuit which will accept 32 bits as input and decode the last 4-bit value.</p>
+<p>For example, suppose the input to this circuit currently appears as: <span style="white-space: nowrap"><code>0000 0000 0000 0000 0000 0000 0000 0111</code></span>. If we decode the last 4 bits, we note that operation 7 is to be performed. The D Signal Generator should output: <span style="white-space: nowrap"><code>0000 0000 1000 0000</code></span>.</p>
+<p>Example: an input of <code>0003</code> (hex) should produce an output of <span style="white-space: nowrap"><code>0000 0000 0000 1000</code></span> (binary).</p>
+<p><strong>Important Note:</strong> If the input contains a value greater than <code>000F</code> then the D Signal Generator should output an error value of <span style="white-space: nowrap"><code>0000 0000 0000 0000</code></span></p>
+<ol>
+<li>Open your <code>RSC.circ</code> file and add a new circuit to the project, named <code><strong>Decoder</strong></code>. Make sure <code><strong>Decoder</strong></code> is the circuit in the schematic window before proceeding.</li>
+<li>Read entire step and note before proceeding. Add the following I/O:
+<ul>
+<li>One 32-bit input labeled <code>IR_In</code> facing west</li>
+<li>One 16-bit output labeled <code>D_Out</code> facing east</li>
+<li>One 4-bit output labeled <code>Debug_Instruction</code>&nbsp;facing east</li>
+<li>NOTE: This is the first circuit that will deviate from convention. This means that your data inputs should be on the right facing west, and your data outputs should be on the left facing east. The flow should be right-to-left within the part. You'll see why later.</li>
+</ul>
+</li>
+<li>Proceed to build the part. It should take in the 32-bit contents of the <code>IR_In</code>, filter out the lowest four bits, and use those bits to generate sixteen bits of output (Hint: Use a decoder!). All outputs of the decoder should be OFF except the one coded for by the input. To build this circuit, you will only need to use combinational logic gates, multiplexers, or decoders.</li>
+<li>In addition, the <code>Decoder</code> should output the instruction code (the lowest four bits of the input) directly to a 4-bit output called <code>Debug_Instruction</code>.</li>
+<li>Test the <code>Decoder</code> circuit thoroughly and log the results. Your log file should show that all <code>d</code>'s can be generated correctly. The file name for the log file should be <code><strong>Decoder_log.txt</strong></code></li>
+</ol>
+<h3>Building the T Signal Generator</h3>
+<p>The T Signal Generator circuit provides the timing signals for the RSC. It requires a 3-bit counter, the sequence counter (<code>SC</code>). We will add additional circuitry to this counter so that timing signals (<code>t0</code>, <code>t1</code>, <code>t2</code>, ..., <code>t7</code> and repeat) are generated. Note that if <code>t0</code> is true, the first step of the fetch operation is to be performed. When <code>t1</code> is true, the second step of the machine cycle is to be performed, etc. Note that only one of the timing signals will be true at a time.</p>
+<ol>
+<li>Add another circuit to your RSC project and call it <code><strong>Timer</strong></code>.</li>
+<li>Read entire step and note before proceeding. Add the following I/O:
+<ul>
+<li>One 1-bit input labeled <code>Clock</code></li>
+<li>One 1-bit input labeled <code>Clear</code></li>
+<li>One 1-bit input labeled <code>Stop</code></li>
+<li>One 8-bit output labeled <code>T_Out</code></li>
+<li>This circuit will also not follow our normal convention. It should have a right-to-left flow, with data outputs on the left facing east. There is no data input for this circuit so all other conventions of control pins and clock pins are normal.</li>
+</ul>
+</li>
+<li>Add your <code>SC</code> circuit to the <code>Timer</code>board.
+<ul>
+<li>Note that your register is aligned in the normal fashion, left to right. To have the circuit flow match the pattern of this part, you can set the facing property to "West" before adding the part. Note though that it will come out upside down, so you will still have to be clever about attaching it to the <code>Timer</code>'s <code>Clock</code> input.</li>
+</ul>
+</li>
+<li>Proceed to build the circuit. Wire everything together so that it behaves as follows:
+<ul>
+<li>The register should ALWAYS count.</li>
+<li>The <code>Timer</code> should use the <code>SC</code>'s contents to generate eight bits, <code>t0</code> through <code>t7</code>.</li>
+<li>The current <code>t</code> value should increment with every clock tick, counting from <code>t0</code> to <code>t7</code> and then cycling back to <code>t0</code>. (<code>0000 0001</code>, <code>0000 0010</code>, <code>0000 0100</code>, etc.)</li>
+<li>When it receives a <code>Clear</code> signal, it should immediately (asynchronously) clear to <code>t0</code>. Once the <code>Clear</code> signal goes back to 0, the <code>Timer</code> should begin counting from 0 again.</li>
+<li>When <code>Stop = 1</code>, the circuit should output a null <code>t</code> value (all bits are <code>0</code>) and should remain a null value. Therefore, you will need to add additional circuitry so that this occurs.</li>
+</ul>
+</li>
+<li>Now, test and log the <code>Timer</code>circuit thoroughly. Show that the circuit:
+<ul>
+<li>Cycles through all of the <code>t</code> values and repeats in sync with each <code>Clock</code> tick.</li>
+<li>Upon receiving a <code>Clear</code> signal, the output immediately clears to <code>t0</code>.</li>
+<li>Upon receiving a <code>Stop</code> signal, it outputs a null <code>t</code> value, all bits OFF.</li>
+</ul>
+</li>
+<li>The <code>Timer</code> log should be labeled <code><strong>Timer_log.txt</strong></code></li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>All conventions and any specific changes listed above.</li>
+<li>Circuits work as specified above</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul>
+<li><code>RSC.circ</code></li>
+<li><code>Decoder_log.txt</code></li>
+<li><code>Timer_log.txt</code></li>
+<li>Any other circuits that the <code>RSC.circ</code> depends on to open</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer1">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:59:02</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA8_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA8_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

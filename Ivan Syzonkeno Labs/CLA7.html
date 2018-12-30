@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA7_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA7_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA7_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 7</h1>
+<h2>Sequence Counter</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>A major portion of the Control Unit for the RSC includes a specialized counter called the SC (sequence counter). This counter will be used to generate timing signals for the CPU. The timing signals indicate the current step in the machine cycle that is to be performed (fetch, decode, execute, etc). In this lab, we will build the SC. Later we will use this counter to complete portions of the Control Unit. The SC is a 3-bit counter which has special inputs called <code>Clear</code> and <code>Clock</code>.</p>
+<p>The SC should:</p>
+<ul>
+<li>Continuously count on each clock pulse.<br>You can think of the SC like the clock on the wall. When the clock hits 12, it starts over. Same for the SC: after 7, it starts over at 0.</li>
+<li>Asynchronously clear to 0 when <code>Clear = 1</code>.</li>
+</ul>
+<p>Even though Logisim has a built in counter, we will be building our own. This means that you can not use the counter module in this circuit.</p>
+<h1 id="procedure">Procedure</h1>
+<ol>
+<li>Open your <code><strong>RSC.circ</strong></code> project file and add a circuit to this project called <code><strong>SC</strong></code>.</li>
+<li>Add the following I/O:
+<ul>
+<li>Two 1-bit inputs labeled <code>Clear</code> and <code>Clock</code>. By now you should know which way they face and where they go approximately.</li>
+<li>One 3-bit output called <code>SEQ_out</code> which indicates the output of the register.</li>
+</ul>
+</li>
+<li>Add one 3-bit Logisim register to the circuit.</li>
+<li>Wire the circuit according to the specifications listed in this lab. You may use other gates and modules as needed. <em>You may not use the counter module.</em>
+<ul>
+<li>Note that this circuit should always count. And it should clear to 0 when <code>Clear = 1</code>.</li>
+</ul>
+</li>
+<li>Test the SC thoroughly. Create a log file called <code><strong>SEQ_log.txt</strong></code>.</li>
+<li>Submit.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>Always counts 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, ... when <code>Clear = 0</code></li>
+<li>Asynchronously clears to 0 when <code>Clear = 1</code></li>
+<li>Continues to count from 0 after the <code>Clear</code> signal has been reset to 0</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul>
+<li><code>RSC.circ</code></li>
+<li><code>SC_log.txt</code></li>
+<li>Any other circuit needed to open the RSC circuit file properly</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:57:34</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA7_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA7_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

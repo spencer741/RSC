@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./CLA6_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./CLA6_files/CLA.css" type="text/css" media="screen">
+	<link href="./CLA6_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Closed Lab 6</h1>
+<h2>ALU</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>The Arithmetic Logic Unit is a combinational circuit that makes up an important part of the CPU. As discussed earlier, we learned that a simple ALU consists of two major subciruits: an arithmetic unit (AU) and a logic unit (LU). We have previously created the arithmetic unit; in today's lab, we will build the logic unit and combine the two subcircuits together to create the final ALU circuit.</p>
+<p><strong>The Logic Unit (LU):</strong><br>The logic unit of the RSC must be able to perform the following logic operations for two 32-bit registers called A and B: A AND B, A OR B, Right Arithmetic Shift (RAS) on A, and NOT A. Since there are four operations to be performed, we need a code, <code>S1</code> and <code>S0</code> again, to specify which operation is to be performed. Your logic unit should operate as follows:</p>
+<table class="monospace">
+<tbody>
+<tr>
+<td>S1</td>
+<td>S0</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>F = A AND B</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>F = A OR B</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>F = RAS A</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>F = NOT A</td>
+</tr>
+</tbody>
+</table>
+<p><em>A note on the right arithmetic shift:</em> Our operation will shift only one bit to the right.</p>
+<h1 id="procedure">Procedure</h1>
+<p><strong>The Logic Unit:</strong></p>
+<ol>
+<li>Open Logisim and open your <code>RSC.circ</code> file.</li>
+<li>Open the <code>Logic_U&nbsp;</code>circuit and add the following I/O:
+<ul>
+<li>Two 32-bit inputs labeled <code>A</code> and <code>B</code></li>
+<li>Two 1-bit inputs labeled <code>S0</code> and <code>S1</code></li>
+<li>One 32-bit output labeled <code>Logic_Out</code></li>
+</ul>
+</li>
+<li>Add combinational gates and circuits as needed to make the circuit behave as described above. <em>Note:</em> You may use the shifter when implementing the right arithmetic shift. It can be found under the Arithmetic folder. Remember: our right shift operation shifts only <strong>one bit</strong> to the right.</li>
+<li>Test your circuit with the following values: <code>A = ABCD1234</code> and <code>B = 06AE18AD</code>.
+<table class="monospace">
+<tbody>
+<tr>
+<td>S1</td>
+<td>S0</td>
+<td>Output should be:</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>028C1024</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>AFEF1ABD</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>D5E6891A</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>5432EDCB</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p><strong>The Arithmetic Logic Unit (ALU):</strong> Putting it all together</p>
+<ol>
+<li>Open the <code>ALU&nbsp;</code>circuit and add the following I/O:
+<ul>
+<li>Two 32-bit inputs labeled <code>A</code> and <code>B</code></li>
+<li>Three 1-bit inputs labeled <code>S2</code>, <code>S1</code>, and <code>S0</code><br><strong>They should be arranged in this order from left to right (<code>S2</code> on the left, <code>S1</code> in the middle, and <code>S0</code> on the right)</strong></li>
+<li>One 32-bit output labeled <code>ALU_Out</code></li>
+</ul>
+</li>
+<li>Add an instance of both the <code>AU</code> and <code>LU</code>. These chips should have text labels put on them.</li>
+<li>Add any additional gates or circuits needed to make the ALU operate according to the following: <code>S2</code>, <code>S1</code>, and <code>S0</code> will control what will be output by the ALU. When <code>S2 = 0</code>, the ALU should perform arithmetic operations. When <code>S2 = 1</code>, the ALU should perform logic operations.</li>
+<li>Test your circuit with the following values and create a log file with the results. The file should be called <code>ALU_log.txt</code>. Use <code>A = 7E117A1E</code> and <code>B = C0CAC01A&nbsp;</code>as values for your log. Your log should also be displaying hex.
+<table>
+<tbody>
+<tr>
+<td>S2</td>
+<td>S1</td>
+<td>S0</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Do the math and check it against what your circuit outputs. Make sure your circuit mirrors reality.</li>
+<li>Submit files.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>All of the normal requirements from the syllabus and conventions pages.</li>
+<li>This lab is also another very important lab in the RSC. Make sure you thoroughly test this circuit.</li>
+<li>The following is what your circuits should look like if you were to add the LU or ALU to another circuit.<br> <img src="./CLA6_files/LU.jpg"> <img src="./CLA6_files/ALU.jpg">
+</li></ul>
+<h1 id="submissions">Submission</h1>
+<ul>
+<li>A zipped file containing:
+<ul>
+<li><code>RSC.circ</code></li>
+<li><code>ALU_log.txt</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:57:07</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./CLA6_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./CLA6_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

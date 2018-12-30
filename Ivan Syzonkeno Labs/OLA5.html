@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cs.mtsu.edu/~is2k/3130/index.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Ivan Syzonenko | COMS | MTSU</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="./OLA5_files/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./OLA5_files/CLA.css" type="text/css" media="screen">
+	<link href="./OLA5_files/simple-sidebar.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		 
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://cs.mtsu.edu/~is2k/">
+                        Ivan Syzonenko
+                    </a>
+                </li>
+<!--                 <li>
+                    <a href="#">Dashboard</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/index.php">Lectures &amp; Labs</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/3130/index.php"> &nbsp; &nbsp; 3130</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/1170/index.php"> &nbsp; &nbsp; 1170</a>
+                </li>
+             <!--    <li>
+                    <a href="../3240/index.php"> &nbsp &nbsp 3240</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/links.php">Useful links</a>
+                </li>
+<!--                 <li>
+                    <a href="#">Events</a>
+                </li> -->
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/about_me.php">About me</a>
+                </li>
+                <li>
+                    <a href="https://www.cs.mtsu.edu/~is2k/contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+						
+
+												
+						
+
+						<p><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php" class="btn btn-default">BACK</a></p><div id="header1">
+<h1>Open Lab 5</h1>
+<h2>RSC Registers</h2>
+</div>
+<div id="navigation1">
+<ul>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#overview">Overview</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#procedure">Procedure</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#requirements">Requirements</a></li>
+<li><a href="https://www.cs.mtsu.edu/~is2k/3130/index.php#submissions">Submission</a></li>
+</ul>
+</div>
+<div id="content1">
+<h1 id="overview">Overview</h1>
+<p>In this lab you will build the 32-bit registers of the RSC system. These 32-bit registers in the system each have their own functional needs. Here's a list of the registers and their functionality for the RSC.</p>
+<p>Table 1</p>
+<table>
+<tbody>
+<tr>
+<td>
+<div align="center"><strong>Register</strong></div>
+</td>
+<td>
+<div align="center"><strong>Functionality</strong></div>
+</td>
+</tr>
+<tr>
+<td>ACC</td>
+<td>Load, Output, Bus Out, Clear</td>
+</tr>
+<tr>
+<td>AR</td>
+<td>Load, Output</td>
+</tr>
+<tr>
+<td>DR</td>
+<td>Load, Output, Bus Out</td>
+</tr>
+<tr>
+<td>IR</td>
+<td>Load, Output</td>
+</tr>
+<tr>
+<td>OUTR</td>
+<td>Load, Output</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">PC</td>
+<td style="vertical-align: top;">Load, Output, Bus Out, Increment</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">R</td>
+<td style="vertical-align: top;">Load, Output, Bus Out</td>
+</tr>
+</tbody>
+</table>
+<p>As noted in the above table, there are four, functionally different types of registers in the list. Therefore, in this lab you will create each of these different types of generic registers and lastly, create the above registers using these generic registers as subcircuits. This lab is divided into phases. You should follow the instructions in each phase, making sure each phase is correct before proceeding to the next phase.</p>
+<p>Table 2</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Phase</strong></td>
+<td><strong>Purpose</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>Add circuits to the previous <code><strong>custom_reg.circ</strong></code> project</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Create generic register that can LOAD and OUTPUT</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Create generic register that can LOAD, OUTPUT and produce a BUS OUTPUT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Create generic register that can LOAD, OUTPUT, produce BUS OUTPUT, and CLEAR on demand</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Create generic register that can LOAD, OUTPUT, produce BUS OUTPUT, and COUNT</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Create the <code>ACC</code>, <code>AR</code>, <code>DR</code>, <code>IR</code>, <code>OUTR</code>, <code>PC</code>, and the <code>R</code> registers</td>
+</tr>
+</tbody>
+</table>
+<h1 id="procedure">Procedure</h1>
+<p>Before we start with the procedure, keep in mind the Logisim Conventions we have set forth in this class. They are very important in this lab.</p>
+<p><strong>Phase 0</strong></p>
+<ol>
+<li><s>Open Logisim and save the blank file as <code><strong>custom_reg.circ</strong></code> (or open your <code><strong>custom_reg.circ</strong></code> file if it was created in an earlier lab). If there is still a circuit labeled <code>main</code>, make sure it's empty and delete it.</s> Click <a style="text-decoration:underline" href="https://www.cs.mtsu.edu/~is2k/3130/custom_reg.circ" download="">here</a> to get the custom_reg with the 1bit_reg circuit. Then add the following circuits to this project:
+<ul class="monospace">
+<li>Register</li>
+<li>BusRegister</li>
+<li>ClearRegister</li>
+<li>CountRegister</li>
+<li>ACC</li>
+<li>AR</li>
+<li>DR</li>
+<li>IR</li>
+<li>OUTR</li>
+<li>PC</li>
+<li>R</li>
+</ul>
+</li>
+</ol>
+<p><strong>Phase 1: The Register</strong><br>In this phase we'll build the the simplest and most straight forward register. This register can LOAD on demand and produce an OUTPUT. Below is the procedure to produce this register. We'll be using Logisim's built-in register component to simplify grading and to produce a better simulation of the system later on. Logisim's register has 5 input/output pins: <code>Data In</code>, <code>Enable</code>, <code>Clock</code>, <code>Clear</code>, and <code>Data</code>. This register loads when the enable pin is 1 and the clock goes from 0 to 1. This register should NEVER clear.</p>
+<ol>
+<li>Add the following I/O:
+<ul>
+<li>One 32-bit input labeled <code>Data_In</code></li>
+<li>One 32-bit output labeled <code>Data_Out</code></li>
+<li>Two 1-bit inputs labeled <code>Clock</code> and <code>Load</code></li>
+</ul>
+</li>
+<li>Add one 32-bit Register from the Memory Folder in the library list</li>
+<li>Wire the circuit according to the requirements stated above</li>
+<li>Log the circuit. The log file name will be <code>Register_log.txt</code>. Show that the circuit syncronously loads when told.</li>
+</ol>
+<p><strong>Phase 2: The Bus Register</strong><br>Several registers in the RSC will be connected to a bus system. Therefore, these registers must have an additional output (a tri-state output). We will create this generic type of register in this phase which is a pretty simple progression from Phase 1. You'll be taking the previous circuit and adding in a second output system.</p>
+<ol>
+<li>Open the <code><strong>BusRegister</strong></code> circuit.</li>
+<li>Create a circuit that is identical to the <code><strong>Register</strong></code>&nbsp;circuit, with the addition of the following I/O:
+<ul>
+<li>One 32-bit output labeled <code>Bus_Out</code> (should be placed below <code>Data_Out</code>)</li>
+<li>One 1-bit input labeled <code>Bus</code></li>
+</ul>
+</li>
+<li>Wire the new I/O using a Tri-State Buffer, so that the output of the register is sent to the <code>Bus_Out</code> when <code>Bus</code> is 1</li>
+<li>Log the circuit. The log file name will be <code>BusRegister_log.txt</code>. You only need to show that <code>Bus_Out</code> produces an output ONLY when the <code>Bus</code> signal is 1.</li>
+</ol>
+<p><strong>Phase 3: Clear Register</strong><br>Now, we need a register that can load, have two outputs (<code>Data_Out</code> and <code>Bus_Out</code>), and can clear on demand.</p>
+<ol>
+<li>Open the <code><strong>ClearRegister</strong></code> circuit.</li>
+<li>Create a circuit that is identical to the <code><strong>BusRegister</strong></code>&nbsp;circuit, with the addition of the following I/O:
+<ul>
+<li>One 1-bit input labeled <code>Clear</code></li>
+</ul>
+</li>
+<li>This circuit should work identically to the <code><strong>BusRegister</strong></code> circuit, with the exception of being able to clear on demand. Wire the circuit so when the <code>Clear</code> input is 1, the <code>Data_Out</code> will clear.</li>
+<li>Log the circuit. The log file name will be <code>ClearRegister_log.txt</code>. You only need to show that the <code>Data_Out</code> will clear when the <code>Clear</code> input is 1.</li>
+</ol>
+<p><strong>Phase 4: Count Register</strong><br>This phase will be a little more difficult. You'll be adding functionality to the register that is more invasive than in previous phases. We'll be adding the ability to increment, or count, in this register. You'll be using some additional components to make this happen.</p>
+<ol>
+<li>Open the <code><strong>CountRegister</strong></code> circuit.</li>
+<li>Create a circuit that is identical to the <code><strong>BusRegister</strong></code>circuit, with the addition of the following I/O:
+<ul>
+<li>One 1-bit input labeled <code>Count</code><br>This will cause the register to increment on the next clock cycle. This signal has priority over <code>Load</code>. Note: This is not a one-shot event, for as long as <code>Count</code> is high (1), the register's value will increment with each clock tick.</li>
+</ul>
+</li>
+<li>Since this register needs the ability to increment, you will also need to bring in Logisim's 32-bit adder into this circuit. This adder should be set-up so that it adds 1 to the data contained in the register.</li>
+<li>This circuit should only count on demand. Therefore, you should note that if <code>Count = 0</code> and <code>Load = 1</code>, the register should load data contained in the <code>Data_In</code> input. If <code>Count = 1</code> and <code>Load = 0</code>, the register should load data coming from the adder. Therefore, you will need to add a 32-bit 2x1 multiplexer to this circuit which will choose the appropriate data to be loaded into the register. Note: <code>Count</code> has priority over <code>Load</code>. That is, if <code>Count = 1</code> and <code>Load = 1</code>, the register should only increment on the next clock cycle.</li>
+<li>Log the circuit. The log file name will be <code>CountBusRegister_log.txt</code>. Use the following data to test the circuit.
+<table style="width: 50%;" border="5">
+<tbody>
+<tr>
+<td>DATA (in hex)</td>
+<td>COUNT</td>
+<td>LOAD</td>
+<td>BUS</td>
+<td>BUS OUTPUT</td>
+<td>OUTPUT</td>
+</tr>
+<tr>
+<td>00000005</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>_______</td>
+<td>_______</td>
+</tr>
+<tr>
+<td>00000005</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>_______</td>
+<td>_______</td>
+</tr>
+<tr>
+<td>00000005</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>_______</td>
+<td>_______</td>
+</tr>
+<tr>
+<td>00000024</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>_______</td>
+<td>_______</td>
+</tr>
+<tr>
+<td>00000017</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>_______</td>
+<td>_______</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p><strong>Phase 5: Encapsulation</strong><br>Now, we need to create the RSC's 32-bit registers. Looking at the list of registers in Table 1 above, you should match registers with their appropriate functionality. Use the following guidelines for each register.</p>
+<ol>
+<li>Open a register circuit. (<code>AR</code> for example)</li>
+<li>Add an appropriate sub-component for this register. For example, when creating the <code>AR</code> register, you should bring in your <code><strong>Register</strong></code> as a sub-component since the <code>AR</code> only needs a <code>Load</code>, <code>Input</code>, <code>Output</code>, and <code>Clock</code> signal.</li>
+<li>Bring in and label all needed I/O pins.</li>
+</ol>
+<h1 id="requirements">Requirements</h1>
+<ul class="note">
+<li>All requirements from the syllabus and 3130 Logisim Conventions.</li>
+<li>Any required functionality listed above.</li>
+<li>Set the Shared Label for all the non-generic register circuits.</li>
+</ul>
+<h1 id="submissions">Submission</h1>
+<ul class="note">
+<li>A zipped file containing:
+<ul class="monospace">
+<li>custom_reg.circ</li>
+<li>Register_log.txt</li>
+<li>BusRegister_log.txt</li>
+<li>ClearBusRegister_log.txt</li>
+<li>CountBusRegister_log.txt</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="footer">
+<p align="left">Copyright © MTSU - Last Modified: <script type="text/javascript">document.write(document.lastModified)</script>12/29/2018 20:57:21</p>
+</div>						
+						<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="./OLA5_files/jquery.js.download"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="./OLA5_files/bootstrap.min.js.download"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+
+
+</body></html>

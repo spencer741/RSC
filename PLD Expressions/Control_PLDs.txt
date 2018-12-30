@@ -1,0 +1,29 @@
+Spencer Arnold PLD expressions. Note: Most of these expressions are not simplified.
+PC_BUS = t0 + t2
+AR_LD = (t0 + t2 + t4(d1 + d2)) !clock
+PC_LD = (d5 t4 + z d6 t4) !clock
+PC_INC = (t1 + d1 t3 + d2 t3 + !z d6 t3) !clock
+DR_LD = (t1 + d1 t3 + d1 t5 + d2 t3 + d2 t5 + d5 t3 + z d6 t3) !clock
+DR_BUS = d1 t4 + d1 t6 + d2 t4 + d2 t6 + d5 t4 + z d6 t4
+R_LD = (d3 t3) !clock
+R_BUS = d4 t3 + d8 t3 + d9 t3 + d12 t3 + d13 t3
+S_LD = (d0 t3) !clock
+ACC_CLR = d11 t3
+ACC_LD = (d1 t6 + d4 t3 + d8 t3 + d9 t3 + d10 t3 + d12 t3 + d13 t3 + d14 t3 + d15 t3) !clock
+ACC_BUS = d2 t5 + d3 t3 + d7 t3
+ALU_SEL =
+	S0 = d4 + d13 + d9 + d15 + d1
+	S1 = d10 + d14 + d15 + d4 + d1
+	S2 = d12 + d13 + d14 + d15 
+RAM_RW = t1 + d1 t5 + t3 (d1+d2+d5+d6 z)
+RAM_EN = t1 + d1 t5 + t3 (d1+d2+d5+d6 z) + d2 t6
+S_LD = d0 t3
+OUTR_LD = (d7 t3) !clock
+Z_LD = 1 
+IR_LD = (t2) !clock
+SC_CLR = t4 !(d1+d2+d5+d6 z) +t5(d5+d6 z) + t7 
+
+
+
+
+
