@@ -23,3 +23,5 @@ Open RSC.circ in logisim and it will prompt for the selection of the other files
 
 
 If this gets enough attention, I will build a tutorial for creating this from the ground up.
+
+For reference only. Efficiency Reccomendations Welcome.
